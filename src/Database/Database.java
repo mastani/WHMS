@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 
 public class Database {
     public static Database DB = null;
-    private Connection conn = null;
+    protected static Connection conn = null;
     
     @SuppressWarnings("UseSpecificCatch")
     public Database() {
