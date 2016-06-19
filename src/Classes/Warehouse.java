@@ -1,10 +1,6 @@
 
 package Classes;
 
-/**
- *
- * @author Hassan
- */
 
 public class Warehouse {
 

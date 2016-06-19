@@ -3,10 +3,7 @@ package Classes;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hassan
- */
+
 public class Date {
     
     private final  int month; // 1-12

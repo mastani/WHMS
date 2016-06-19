@@ -3,10 +3,7 @@ package Classes;
 
 import javax.swing.JOptionPane;
 
-/**
- * 
- * @author Hassan
- */
+
 public class Person {
     
     //fields:

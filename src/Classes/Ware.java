@@ -1,10 +1,7 @@
 
 package Classes;
 
-/**
- *
- * @author Hassan
- */
+
 public class Ware {
     
     //Fields:
