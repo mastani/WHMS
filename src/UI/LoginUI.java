@@ -7,6 +7,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import Database.Database;
+import Database.Queries;
 import Functions.Functions;
 
 
@@ -214,7 +215,7 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        boolean login = Database.DB.validateLogin(txtUsername.getText(), txtPassword.getText());
+        boolean login = Queries.validateLogin(txtUsername.getText(), txtPassword.getText());
         if(login) {
             JOptionPane.showMessageDialog(null, "با موفقیت وارد شدید!");
         }
@@ -247,7 +248,7 @@ public class LoginUI extends javax.swing.JFrame {
             return;
         }
         
-        boolean register = Database.DB.registerAccount(username, password);
+        boolean register = Queries.registerAccount(username, password);
         if (register)
             JOptionPane.showMessageDialog(null, "ثبت نام شما با موفقیت انجام شد!");
         else
@@ -262,13 +263,7 @@ public class LoginUI extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
@@ -276,8 +271,14 @@ public class LoginUI extends javax.swing.JFrame {
         //</editor-fold>
         //</editor-fold>
         
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 LoginUI whms = new LoginUI();
                 whms.setVisible(true);
@@ -289,9 +290,8 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
         
-        Database.DB = new Database();
-        
         ActionListener taskPerformer = new ActionListener() {
+            @Override
             public void actionPerformed(ActionEvent evt) {
                 lblTime.setText(Functions.getTime());
             }
