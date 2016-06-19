@@ -52,7 +52,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         txtUsername.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
 
-        btnLogin.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        btnLogin.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnLogin.setText("ورود");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,12 +60,13 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jLabel4.setText("کد پرسنلی :");
 
-        jLabel5.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jLabel5.setText("کلمه عبور :");
 
+        chkRemember.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
         chkRemember.setText("به یاد داشتن اطلاعات ورود");
 
         txtPassword.setFont(new java.awt.Font("Consolas", 0, 14)); // NOI18N
@@ -74,12 +75,8 @@ public class LoginUI extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(92, 92, 92)
-                .addComponent(chkRemember)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(192, Short.MAX_VALUE)
+                .addContainerGap(39, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel1Layout.createSequentialGroup()
@@ -92,6 +89,10 @@ public class LoginUI extends javax.swing.JFrame {
                             .addComponent(jLabel4)))
                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(113, 113, 113)
+                .addComponent(chkRemember)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +109,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addComponent(chkRemember)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnLogin)
-                .addContainerGap(209, Short.MAX_VALUE))
+                .addContainerGap(213, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ورود به ناحیه کاربری", jPanel1);
