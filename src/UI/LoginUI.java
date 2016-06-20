@@ -31,7 +31,7 @@ public class LoginUI extends javax.swing.JFrame {
         txtUsername = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtPassword = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -89,12 +89,12 @@ public class LoginUI extends javax.swing.JFrame {
 
         txtPassword.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
 
-        jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
-        jButton1.setText("خروج");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnExit.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
+        btnExit.setText("خروج");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnExitActionPerformed(evt);
             }
         });
 
@@ -117,7 +117,7 @@ public class LoginUI extends javax.swing.JFrame {
                                     .addGap(16, 16, 16)
                                     .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(jLabel5)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
@@ -140,7 +140,7 @@ public class LoginUI extends javax.swing.JFrame {
                 .addComponent(chkRemember)
                 .addGap(16, 16, 16)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(18, Short.MAX_VALUE))
         );
@@ -174,11 +174,6 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel7.setToolTipText("");
 
         jTextField1.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
 
         jLabel1.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
         jLabel1.setText("نام :");
@@ -197,11 +192,6 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel6.setToolTipText("");
 
         txtRegisterPassword1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        txtRegisterPassword1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRegisterPassword1ActionPerformed(evt);
-            }
-        });
 
         btnRegister.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
@@ -215,11 +205,6 @@ public class LoginUI extends javax.swing.JFrame {
         txtName.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
         txtRegisterPassword2.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        txtRegisterPassword2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRegisterPassword2ActionPerformed(evt);
-            }
-        });
 
         jLabel2.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
         jLabel2.setText("گذرواژه :");
@@ -228,11 +213,6 @@ public class LoginUI extends javax.swing.JFrame {
         jLabel3.setText("تایید گذرواژه :");
 
         txtRegisterPassword3.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        txtRegisterPassword3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtRegisterPassword3ActionPerformed(evt);
-            }
-        });
 
         chkTerms.setBackground(new java.awt.Color(235, 253, 253));
         chkTerms.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
@@ -270,10 +250,10 @@ public class LoginUI extends javax.swing.JFrame {
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel6)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3)
                                 .addComponent(jLabel8)
-                                .addComponent(jLabel9))))
+                                .addComponent(jLabel9)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnRegister)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -377,9 +357,17 @@ public class LoginUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        boolean login = Queries.validateLogin(txtUsername.getText(), txtPassword.getText());
-        if(login) {
-            JOptionPane.showMessageDialog(null, "با موفقیت وارد شدید!");
+        String username = txtUsername.getText();
+        String password = txtPassword.getText();
+        
+        if (username.isEmpty() || password.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "نام کاربری و کلمه عبور را وارد کنید!");
+        } else {
+            boolean login = Queries.validateLogin(username, password);
+            if(login) {
+                HomePageUI.main(new String[0]);
+                setVisible(false);
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
@@ -417,25 +405,9 @@ public class LoginUI extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "ثبت نام دچار مشکل شد!");
     }//GEN-LAST:event_btnRegisterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void txtRegisterPassword1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterPassword1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRegisterPassword1ActionPerformed
-
-    private void txtRegisterPassword2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterPassword2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRegisterPassword2ActionPerformed
-
-    private void txtRegisterPassword3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtRegisterPassword3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtRegisterPassword3ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegister1ActionPerformed
         // TODO add your handling code here:
@@ -486,12 +458,12 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
     private javax.swing.JButton btnRegister1;
     private javax.swing.JCheckBox chkRemember;
     private javax.swing.JCheckBox chkTerms;
-    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
