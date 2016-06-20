@@ -70,9 +70,11 @@ public class ListOfUsersUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
         jButton1.setText("بازگشت");
 
         jButton2.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
         jButton2.setText("حذف کاربر");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -108,7 +110,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         pack();

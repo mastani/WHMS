@@ -44,7 +44,7 @@
               <Component id="jButton2" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jButton3" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -53,7 +53,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="29" max="32767" attributes="0"/>
+              <EmptySpace pref="25" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="157" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -119,6 +119,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/undoResized.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x628;&#x627;&#x632;&#x6af;&#x634;&#x62a;"/>
       </Properties>
       <Events>
@@ -130,6 +133,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x627;&#x636;&#x627;&#x641;&#x647; &#x6a9;&#x631;&#x62f;&#x646; &#x645;&#x634;&#x62a;&#x631;&#x6cc;"/>
       </Properties>
     </Component>
@@ -137,6 +143,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/close (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x62d;&#x630;&#x641; &#x645;&#x634;&#x62a;&#x631;&#x6cc;"/>
       </Properties>

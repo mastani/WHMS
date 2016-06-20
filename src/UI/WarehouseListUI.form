@@ -44,7 +44,7 @@
                               <Component id="btnDeleteWarehouse" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="0" pref="103" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="43" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -56,7 +56,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="39" max="32767" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="190" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -125,6 +125,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/undoResized.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x628;&#x627;&#x632;&#x6af;&#x634;&#x62a;"/>
       </Properties>
       <Events>
@@ -136,6 +139,9 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
         </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/add.png"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="&#x627;&#x636;&#x627;&#x641;&#x647; &#x6a9;&#x631;&#x62f;&#x646; &#x627;&#x646;&#x628;&#x627;&#x631;"/>
       </Properties>
       <Events>
@@ -146,6 +152,9 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="B Nazanin" size="12" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/close (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&#x62d;&#x630;&#x641; &#x627;&#x646;&#x628;&#x627;&#x631;"/>
       </Properties>
