@@ -6,11 +6,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
-import Database.Database;
 import Database.Queries;
 import Functions.Functions;
 import java.awt.Color;
 import java.util.Date;
+import java.net.URL;
+import javax.sound.sampled.*;
 
 
 public class LoginUI extends javax.swing.JFrame {
@@ -487,6 +488,18 @@ public class LoginUI extends javax.swing.JFrame {
                 
                 Date date = new Date();
                 txtBirthdate.setDate(date);
+                
+                try {
+                    URL url = this.getClass().getClassLoader().getResource("gameover.wav");
+                    AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
+                    // Get a sound clip resource.
+                    Clip clip = AudioSystem.getClip();
+                    // Open audio clip and load samples from the audio input stream.
+                    clip.open(audioIn);
+                    clip.start();
+                } catch (Exception ex) {
+                    
+                }
             }
         });
         
