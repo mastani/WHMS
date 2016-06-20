@@ -64,6 +64,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblWarehouses);
 
         btnBackWarehouse.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnBackWarehouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
         btnBackWarehouse.setText("بازگشت");
         btnBackWarehouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -72,6 +73,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
         });
 
         btnAddWarehouse.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnAddWarehouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         btnAddWarehouse.setText("اضافه کردن انبار");
         btnAddWarehouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +82,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
         });
 
         btnDeleteWarehouse.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnDeleteWarehouse.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
         btnDeleteWarehouse.setText("حذف انبار");
         btnDeleteWarehouse.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,7 +111,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
                                 .addComponent(btnAddWarehouse)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnDeleteWarehouse)))
-                        .addGap(0, 103, Short.MAX_VALUE)))
+                        .addGap(0, 43, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -116,7 +119,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
