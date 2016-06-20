@@ -61,6 +61,7 @@ public class LoginUI extends javax.swing.JFrame {
         jTabbedPane1.setBackground(new java.awt.Color(235, 253, 253));
 
         jPanel1.setBackground(new java.awt.Color(235, 253, 253));
+        jPanel1.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
 
         jPanel4.setBackground(new java.awt.Color(235, 253, 253));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Log In", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(0, 0, 204))); // NOI18N
@@ -344,7 +345,7 @@ public class LoginUI extends javax.swing.JFrame {
 
         lblTime1.setBackground(new java.awt.Color(235, 253, 253));
         lblTime1.setFont(new java.awt.Font("Consolas", 1, 14)); // NOI18N
-        lblTime1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Hassan\\Desktop\\Icons\\clockresized.png")); // NOI18N
+        lblTime1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/clockresized.png"))); // NOI18N
         lblTime1.setText("Clock :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
