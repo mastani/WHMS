@@ -1,15 +1,9 @@
 package UI;
 
-import Database.Database;
-import Functions.Functions;
 import java.awt.Dimension;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import Classes.Warehouse;
 
 public class WarehouseListUI extends javax.swing.JFrame {
 
@@ -134,8 +128,12 @@ public class WarehouseListUI extends javax.swing.JFrame {
 
     private void btnAddWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWarehouseActionPerformed
         String newRow = JOptionPane.showInputDialog(null, "نام انبار جدید را وارد کنید", "افزودن انبار", JOptionPane.PLAIN_MESSAGE);
-        Database.DB.simpleQuery("INSERT INTO warehouse (name, state) VALUES (\"" + newRow + "\", 0)");
-        JOptionPane.showMessageDialog(null, "با موفقیت اضافه شد!");
+        
+        if (!newRow.isEmpty()) {
+            Warehouse.insertWarehouse(new Warehouse(0, newRow, 0));
+            JOptionPane.showMessageDialog(null, "با موفقیت اضافه شد!");
+        }
+        
         loadTable();
     }//GEN-LAST:event_btnAddWarehouseActionPerformed
 
@@ -147,7 +145,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
 
             int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.YES_OPTION) {
-                Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + tableID);
+                Warehouse.deleteWarehouse(tableID);
                 JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
                 loadTable();
             }
@@ -164,35 +162,28 @@ public class WarehouseListUI extends javax.swing.JFrame {
 
     public static void loadTable() {
         // Load table
-        try {
-            ResultSet rs = Database.DB.Query("SELECT * FROM warehouse");
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 3;
 
-            DefaultTableModel tableModel = new DefaultTableModel();
-            ResultSetMetaData metaData = rs.getMetaData();
-            int columnCount = metaData.getColumnCount();
+        tableModel.addColumn("شماره انبار");
+        tableModel.addColumn("نام انبار");
+        tableModel.addColumn("وضعیت انبار");
 
-            tableModel.addColumn("شماره انبار");
-            tableModel.addColumn("نام انبار");
-            tableModel.addColumn("وضعیت انبار");
+        Object[] row = new Object[columnCount];
 
-            Object[] row = new Object[columnCount];
-            while (rs.next()){
-                for (int i = 0; i < columnCount; i++){
-                    row[i] = rs.getObject(i+1);
-                }
-                tableModel.addRow(row);
-            }
-
-            tblWarehouses.setModel(tableModel);
-
-            Dimension tableSize =  tblWarehouses.getPreferredSize();
-            tblWarehouses.getColumnModel().getColumn(0).setPreferredWidth(Math.round(tableSize.width*0.35f));
-            tblWarehouses.getColumnModel().getColumn(1).setPreferredWidth(Math.round(tableSize.width*0.85f));
-            tblWarehouses.getColumnModel().getColumn(2).setPreferredWidth(Math.round(tableSize.width*0.25f));
-
-        } catch (SQLException ex) {
-            Logger.getLogger(WarehouseListUI.class.getName()).log(Level.SEVERE, null, ex);
+        for (Warehouse wh : Warehouse.WarehousesHolder) {
+            row[0] = wh.getWarehouse_ID();
+            row[1] = wh.getName();
+            row[2] = wh.getState();
+            tableModel.addRow(row);
         }
+
+        tblWarehouses.setModel(tableModel);
+
+        Dimension tableSize =  tblWarehouses.getPreferredSize();
+        tblWarehouses.getColumnModel().getColumn(0).setPreferredWidth(Math.round(tableSize.width*0.35f));
+        tblWarehouses.getColumnModel().getColumn(1).setPreferredWidth(Math.round(tableSize.width*0.85f));
+        tblWarehouses.getColumnModel().getColumn(2).setPreferredWidth(Math.round(tableSize.width*0.25f));
     }
     
     public static void main(String args[]) {

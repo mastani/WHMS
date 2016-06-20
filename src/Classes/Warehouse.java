@@ -62,15 +62,25 @@ public class Warehouse {
     public static void loadWarehouses() {
         try {
             ResultSet rs = Database.DB.Query("SELECT * FROM warehouse");
-            Warehouse.WarehousesHolder = new Vector<>(rs.getRow());
+            WarehousesHolder = new Vector<>(rs.getRow());
             Warehouse temp;
             while (rs.next()) {
                 temp = new Warehouse(rs.getInt("warehouse_ID"), rs.getString("name"), rs.getInt("state"));
-                Warehouse.WarehousesHolder.add(temp);
+                WarehousesHolder.add(temp);
             }
         } catch (SQLException ex) {
             Logger.getLogger(HomePageUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public static void insertWarehouse(Warehouse warehouse) {
+        Database.DB.simpleQuery("INSERT INTO warehouse (name, state) VALUES (\"" + warehouse.getName() + "\", " + String.valueOf(warehouse.getState()) + ")");
+        loadWarehouses();
+    }
+    
+    public static void deleteWarehouse(String warehouse_ID) {
+        Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + warehouse_ID);
+        loadWarehouses();
     }
     
 }

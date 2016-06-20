@@ -1,6 +1,6 @@
 package UI;
 
-import Classes.Warehouse;
+import Classes.*;
 
 public class HomePageUI extends javax.swing.JFrame {
 
@@ -12,12 +12,12 @@ public class HomePageUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
+        btnCustomersList = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtWarehouseList = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -25,8 +25,13 @@ public class HomePageUI extends javax.swing.JFrame {
         setBackground(new java.awt.Color(235, 253, 253));
         setResizable(false);
 
-        jButton4.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton4.setText("لیست مشتریان");
+        btnCustomersList.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnCustomersList.setText("لیست مشتریان");
+        btnCustomersList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCustomersListActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("B Nazanin", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -44,8 +49,13 @@ public class HomePageUI extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jButton1.setText("مدیریت کالاها");
 
-        jButton2.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton2.setText("لیست انبارها");
+        txtWarehouseList.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        txtWarehouseList.setText("لیست انبارها");
+        txtWarehouseList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtWarehouseListActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jButton3.setText("لیست انبارداران");
@@ -61,13 +71,13 @@ public class HomePageUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCustomersList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtWarehouseList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(45, 45, 45))
         );
@@ -79,10 +89,10 @@ public class HomePageUI extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(txtWarehouseList))
                 .addGap(51, 51, 51)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton4)
+                    .addComponent(btnCustomersList)
                     .addComponent(jButton5))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -93,6 +103,16 @@ public class HomePageUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtWarehouseListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtWarehouseListActionPerformed
+        WarehouseListUI.main(new String[0]);
+        setVisible(false);
+    }//GEN-LAST:event_txtWarehouseListActionPerformed
+
+    private void btnCustomersListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCustomersListActionPerformed
+        CustomersListUI.main(new String[0]);
+        setVisible(false);
+    }//GEN-LAST:event_btnCustomersListActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -133,12 +153,12 @@ public class HomePageUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnCustomersList;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton txtWarehouseList;
     // End of variables declaration//GEN-END:variables
 }

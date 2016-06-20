@@ -12,7 +12,7 @@ public class CustomersListUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblCustomers = new javax.swing.JTable();
         btnBackCustomer = new javax.swing.JButton();
         btnAddCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
@@ -26,8 +26,8 @@ public class CustomersListUI extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setPreferredSize(new java.awt.Dimension(90, 40));
 
-        jTable1.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblCustomers.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
+        tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -46,13 +46,14 @@ public class CustomersListUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setToolTipText("");
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setName(""); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
+        tblCustomers.setToolTipText("");
+        tblCustomers.setColumnSelectionAllowed(true);
+        tblCustomers.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblCustomers.setName(""); // NOI18N
+        jScrollPane1.setViewportView(tblCustomers);
 
         btnBackCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnBackCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
         btnBackCustomer.setText("بازگشت");
         btnBackCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,9 +62,11 @@ public class CustomersListUI extends javax.swing.JFrame {
         });
 
         btnAddCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnAddCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         btnAddCustomer.setText("اضافه کردن مشتری");
 
         btnDeleteCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnDeleteCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
         btnDeleteCustomer.setText("حذف مشتری");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -113,16 +116,15 @@ public class CustomersListUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackCustomerActionPerformed
-        // TODO add your handling code here:
+        HomePageUI.main(new String[0]);
+        setVisible(false);
     }//GEN-LAST:event_btnBackCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -163,6 +165,6 @@ public class CustomersListUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblCustomers;
     // End of variables declaration//GEN-END:variables
 }
