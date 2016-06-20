@@ -16,9 +16,20 @@ public class Database {
     public Database() {
         try {
             Class.forName("com.mysql.jdbc.Driver").newInstance();
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/whms", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/whms?useUnicode=true&characterEncoding=UTF-8", "root", "");
         } catch (Exception ex) {
             Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public boolean simpleQuery(String query) {
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.execute(query);
+            return true;
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
         }
     }
     
