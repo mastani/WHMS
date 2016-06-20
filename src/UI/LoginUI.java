@@ -388,30 +388,51 @@ public class LoginUI extends javax.swing.JFrame {
         if (name.length() == 0) {
             lblName.setForeground(Color.red);
             error = true;
+        } else {
+            lblName.setForeground(Color.black);
+            error = false;
         }
         if (lastName.length() == 0) {
             lblLastName.setForeground(Color.red);
             error = true;
+        } else {
+            lblLastName.setForeground(Color.black);
+            error = false;
         }
         if (birthDate.length() == 0) {
             lblBirthdate.setForeground(Color.red);
             error = true;
+        } else {
+            lblBirthdate.setForeground(Color.black);
+            error = false;
         }
         if (password.length() == 0) {
             lblPassword.setForeground(Color.red);
             error = true;
+        } else {
+            lblPassword.setForeground(Color.black);
+            error = false;
         }
         if (confirm.length() == 0) {
             lblConfirmPassword.setForeground(Color.red);
             error = true;
+        } else {
+            lblConfirmPassword.setForeground(Color.black);
+            error = false;
         }
         if (phoneNumber.length() == 0) {
             lblPhoneNumber.setForeground(Color.red);
             error = true;
+        } else {
+            lblPhoneNumber.setForeground(Color.black);
+            error = false;
         }
         if (address.length() == 0) {
             lblAddress.setForeground(Color.red);
             error = true;
+        } else {
+            lblAddress.setForeground(Color.black);
+            error = false;
         }
         if (!terms) {
             JOptionPane.showMessageDialog(null, "برای ثبت نام باید قوانین را قبول کنید!");
