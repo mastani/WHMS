@@ -1,5 +1,13 @@
 package UI;
 
+import Classes.Warehouse;
+import Database.Database;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Vector;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class HomePageUI extends javax.swing.JFrame {
 
     public HomePageUI() {
@@ -124,6 +132,10 @@ public class HomePageUI extends javax.swing.JFrame {
                 hpui.setLocationRelativeTo(null);
             }
         });
+        
+        // Inizialize Objects
+        Warehouse.loadWarehouses();
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
