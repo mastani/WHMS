@@ -8,6 +8,6 @@ public class Initialize {
     
     public static void main(String args[]) {
         Database.DB = new Database();
-        WarehouseListUI.main(args);
+        LoginUI.main(args);
     }
 }
