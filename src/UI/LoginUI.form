@@ -97,7 +97,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                       <Component id="jPanel4" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="194" max="32767" attributes="0"/>
+                      <EmptySpace pref="222" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -313,29 +313,29 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="txtRegisterPassword2" max="32767" attributes="0"/>
-                                          <Component id="txtName1" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="txtLastName" alignment="0" max="32767" attributes="0"/>
                                           <Component id="txtName" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jDateChooser1" alignment="1" max="32767" attributes="0"/>
+                                          <Component id="txtBirthdate" alignment="1" max="32767" attributes="0"/>
                                           <Component id="txtRegisterPassword1" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="txtRegisterPassword3" alignment="0" max="32767" attributes="0"/>
-                                          <Component id="jTextField1" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="txtAddress" alignment="1" min="-2" pref="166" max="-2" attributes="0"/>
+                                          <Component id="txtPhoneNumber" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel1" min="-2" pref="25" max="-2" attributes="0"/>
-                                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
+                                          <Component id="lblLastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblBirthdate" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblName" min="-2" pref="25" max="-2" attributes="0"/>
+                                          <Component id="lblConfirmPassword" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPhoneNumber" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblAddress" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="lblPassword" alignment="0" min="-2" pref="57" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="btnRegister" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnRegister1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="btnClear" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -347,45 +347,45 @@
                       <Group type="102" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblName" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="txtName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtName1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtLastName" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblLastName" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                              <Component id="jDateChooser1" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblBirthdate" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtBirthdate" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtRegisterPassword1" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="lblPassword" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="txtRegisterPassword2" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="lblConfirmPassword" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="txtRegisterPassword3" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="lblPhoneNumber" alignment="3" min="-2" pref="17" max="-2" attributes="0"/>
+                              <Component id="txtPhoneNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextField1" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="lblAddress" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="txtAddress" alignment="3" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Component id="chkTerms" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="btnRegister" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="btnRegister1" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnClear" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -393,7 +393,7 @@
                 </DimensionLayout>
               </Layout>
               <SubComponents>
-                <Component class="javax.swing.JLabel" name="jLabel7">
+                <Component class="javax.swing.JLabel" name="lblLastName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -402,14 +402,14 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="txtAddress">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="12" style="1"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel1">
+                <Component class="javax.swing.JLabel" name="lblName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -418,7 +418,7 @@
                     <Property name="toolTipText" type="java.lang.String" value=""/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel9">
+                <Component class="javax.swing.JLabel" name="lblAddress">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -426,7 +426,7 @@
                     <Property name="text" type="java.lang.String" value="&#x622;&#x62f;&#x631;&#x633; :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel8">
+                <Component class="javax.swing.JLabel" name="lblPhoneNumber">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -434,14 +434,14 @@
                     <Property name="text" type="java.lang.String" value="&#x634;&#x645;&#x627;&#x631;&#x647; &#x62a;&#x645;&#x627;&#x633; :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="txtName1">
+                <Component class="javax.swing.JTextField" name="txtLastName">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="1"/>
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel6">
+                <Component class="javax.swing.JLabel" name="lblBirthdate">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -485,7 +485,7 @@
                     </Property>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel2">
+                <Component class="javax.swing.JLabel" name="lblPassword">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -493,7 +493,7 @@
                     <Property name="text" type="java.lang.String" value="&#x6af;&#x630;&#x631;&#x648;&#x627;&#x698;&#x647; :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="jLabel3">
+                <Component class="javax.swing.JLabel" name="lblConfirmPassword">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="0"/>
@@ -501,14 +501,10 @@
                     <Property name="text" type="java.lang.String" value="&#x62a;&#x627;&#x6cc;&#x6cc;&#x62f; &#x6af;&#x630;&#x631;&#x648;&#x627;&#x698;&#x647; :"/>
                   </Properties>
                 </Component>
-                <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser1">
-                </Component>
-                <Component class="javax.swing.JPasswordField" name="txtRegisterPassword3">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="B Nazanin" size="14" style="1"/>
-                    </Property>
-                  </Properties>
+                <Component class="com.toedter.calendar.JDateChooser" name="txtBirthdate">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="10"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JCheckBox" name="chkTerms">
                   <Properties>
@@ -521,7 +517,7 @@
                     <Property name="text" type="java.lang.String" value="&#x628;&#x627; &#x642;&#x648;&#x627;&#x646;&#x6cc;&#x646; &#x648; &#x645;&#x642;&#x631;&#x631;&#x627;&#x62a; &#x645;&#x648;&#x627;&#x641;&#x642;&#x645;"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JButton" name="btnRegister1">
+                <Component class="javax.swing.JButton" name="btnClear">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="B Nazanin" size="14" style="1"/>
@@ -532,8 +528,15 @@
                     <Property name="text" type="java.lang.String" value="&#x67e;&#x627;&#x6a9; &#x6a9;&#x631;&#x62f;&#x646;"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegister1ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnClearActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="txtPhoneNumber">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="B Nazanin" size="14" style="1"/>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>

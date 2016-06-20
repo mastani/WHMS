@@ -9,6 +9,8 @@ import javax.swing.Timer;
 import Database.Database;
 import Database.Queries;
 import Functions.Functions;
+import java.awt.Color;
+import java.util.Date;
 
 
 public class LoginUI extends javax.swing.JFrame {
@@ -34,23 +36,23 @@ public class LoginUI extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        txtName1 = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
+        lblLastName = new javax.swing.JLabel();
+        txtAddress = new javax.swing.JTextField();
+        lblName = new javax.swing.JLabel();
+        lblAddress = new javax.swing.JLabel();
+        lblPhoneNumber = new javax.swing.JLabel();
+        txtLastName = new javax.swing.JTextField();
+        lblBirthdate = new javax.swing.JLabel();
         txtRegisterPassword1 = new javax.swing.JPasswordField();
         btnRegister = new javax.swing.JButton();
         txtName = new javax.swing.JTextField();
         txtRegisterPassword2 = new javax.swing.JPasswordField();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        txtRegisterPassword3 = new javax.swing.JPasswordField();
+        lblPassword = new javax.swing.JLabel();
+        lblConfirmPassword = new javax.swing.JLabel();
+        txtBirthdate = new com.toedter.calendar.JDateChooser();
         chkTerms = new javax.swing.JCheckBox();
-        btnRegister1 = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
+        txtPhoneNumber = new javax.swing.JTextField();
         lblTime1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -159,7 +161,7 @@ public class LoginUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(222, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ورود به ناحیه کاربری", jPanel1);
@@ -169,27 +171,27 @@ public class LoginUI extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(235, 253, 253));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Register", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Times New Roman", 1, 14), new java.awt.Color(0, 0, 255))); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel7.setText("نام خانوادگی :");
-        jLabel7.setToolTipText("");
+        lblLastName.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblLastName.setText("نام خانوادگی :");
+        lblLastName.setToolTipText("");
 
-        jTextField1.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        txtAddress.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel1.setText("نام :");
-        jLabel1.setToolTipText("");
+        lblName.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblName.setText("نام :");
+        lblName.setToolTipText("");
 
-        jLabel9.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel9.setText("آدرس :");
+        lblAddress.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblAddress.setText("آدرس :");
 
-        jLabel8.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel8.setText("شماره تماس :");
+        lblPhoneNumber.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblPhoneNumber.setText("شماره تماس :");
 
-        txtName1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        txtLastName.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel6.setText("   تاریخ تولد :");
-        jLabel6.setToolTipText("");
+        lblBirthdate.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblBirthdate.setText("   تاریخ تولد :");
+        lblBirthdate.setToolTipText("");
 
         txtRegisterPassword1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
@@ -206,26 +208,26 @@ public class LoginUI extends javax.swing.JFrame {
 
         txtRegisterPassword2.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel2.setText("گذرواژه :");
+        lblPassword.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblPassword.setText("گذرواژه :");
 
-        jLabel3.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jLabel3.setText("تایید گذرواژه :");
-
-        txtRegisterPassword3.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        lblConfirmPassword.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        lblConfirmPassword.setText("تایید گذرواژه :");
 
         chkTerms.setBackground(new java.awt.Color(235, 253, 253));
         chkTerms.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
         chkTerms.setText("با قوانین و مقررات موافقم");
 
-        btnRegister1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        btnRegister1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
-        btnRegister1.setText("پاک کردن");
-        btnRegister1.addActionListener(new java.awt.event.ActionListener() {
+        btnClear.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnClear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
+        btnClear.setText("پاک کردن");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRegister1ActionPerformed(evt);
+                btnClearActionPerformed(evt);
             }
         });
+
+        txtPhoneNumber.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -239,25 +241,25 @@ public class LoginUI extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createSequentialGroup()
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(txtRegisterPassword2)
-                                .addComponent(txtName1, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtLastName, javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtBirthdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(txtRegisterPassword1, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtRegisterPassword3, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtPhoneNumber))
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel3)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel9)
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(lblLastName)
+                                .addComponent(lblBirthdate)
+                                .addComponent(lblName, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(lblConfirmPassword)
+                                .addComponent(lblPhoneNumber)
+                                .addComponent(lblAddress)
+                                .addComponent(lblPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(btnRegister)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnRegister1)))
+                        .addComponent(btnClear)))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -265,38 +267,38 @@ public class LoginUI extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
+                    .addComponent(lblName)
                     .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                    .addComponent(txtLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblLastName))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblBirthdate)
+                    .addComponent(txtBirthdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRegisterPassword1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(lblPassword))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtRegisterPassword2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtRegisterPassword3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPhoneNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblAddress)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(chkTerms)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnRegister)
-                    .addComponent(btnRegister1))
+                    .addComponent(btnClear))
                 .addContainerGap())
         );
 
@@ -372,46 +374,71 @@ public class LoginUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
-        String username = txtName.getText();
+        String name = txtName.getText();
+        String lastName = txtLastName.getText();
+        String birthDate = txtBirthdate.getDateFormatString();
         String password = txtRegisterPassword1.getText();
         String confirm = txtRegisterPassword2.getText();
+        String phoneNumber = txtPhoneNumber.getText();
+        String address = txtAddress.getText();
         boolean terms = chkTerms.isSelected();
         
-        if (username.length() == 0) {
-            JOptionPane.showMessageDialog(null, "نام کاربری را وارد کنید!");
-            return;
+        boolean error = false;
+        
+        if (name.length() == 0) {
+            lblName.setForeground(Color.red);
+            error = true;
+        }
+        if (lastName.length() == 0) {
+            lblLastName.setForeground(Color.red);
+            error = true;
+        }
+        if (birthDate.length() == 0) {
+            lblBirthdate.setForeground(Color.red);
+            error = true;
         }
         if (password.length() == 0) {
-            JOptionPane.showMessageDialog(null, "کلمه عبور را وارد کنید!");
-            return;
+            lblPassword.setForeground(Color.red);
+            error = true;
         }
         if (confirm.length() == 0) {
-            JOptionPane.showMessageDialog(null, "تایید کلمه عبور خود را وارد کنید!");
-            return;
+            lblConfirmPassword.setForeground(Color.red);
+            error = true;
+        }
+        if (phoneNumber.length() == 0) {
+            lblPhoneNumber.setForeground(Color.red);
+            error = true;
+        }
+        if (address.length() == 0) {
+            lblAddress.setForeground(Color.red);
+            error = true;
         }
         if (!terms) {
             JOptionPane.showMessageDialog(null, "برای ثبت نام باید قوانین را قبول کنید!");
-            return;
+            error = true;
         }
         if (password.compareTo(confirm) != 0) {
             JOptionPane.showMessageDialog(null, "کلمه های عبور تطابق ندارند!");
-            return;
+            error = true;
         }
         
-        boolean register = Queries.registerAccount(username, password);
-        if (register)
-            JOptionPane.showMessageDialog(null, "ثبت نام شما با موفقیت انجام شد!");
-        else
-            JOptionPane.showMessageDialog(null, "ثبت نام دچار مشکل شد!");
+        if (error)
+            return;
+        
+//        boolean register = Queries.registerAccount(username, password);
+//        if (register)
+//            JOptionPane.showMessageDialog(null, "ثبت نام شما با موفقیت انجام شد!");
+//        else
+//            JOptionPane.showMessageDialog(null, "ثبت نام دچار مشکل شد!");
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         System.exit(0);
     }//GEN-LAST:event_btnExitActionPerformed
 
-    private void btnRegister1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegister1ActionPerformed
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnRegister1ActionPerformed
+    }//GEN-LAST:event_btnClearActionPerformed
 
     public static void main(String args[]) {        
         try {
@@ -424,15 +451,6 @@ public class LoginUI extends javax.swing.JFrame {
         } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(LoginUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -445,6 +463,9 @@ public class LoginUI extends javax.swing.JFrame {
                 // Set background
                 Image icon = new ImageIcon(this.getClass().getResource("/icon.png")).getImage();
                 whms.setIconImage(icon);
+                
+                Date date = new Date();
+                txtBirthdate.setDate(date);
             }
         });
         
@@ -458,36 +479,36 @@ public class LoginUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnRegister;
-    private javax.swing.JButton btnRegister1;
     private javax.swing.JCheckBox chkRemember;
     private javax.swing.JCheckBox chkTerms;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblAddress;
+    private javax.swing.JLabel lblBirthdate;
+    private javax.swing.JLabel lblConfirmPassword;
+    private javax.swing.JLabel lblLastName;
+    private javax.swing.JLabel lblName;
+    private javax.swing.JLabel lblPassword;
+    private javax.swing.JLabel lblPhoneNumber;
     private static final javax.swing.JLabel lblTime = new javax.swing.JLabel();
     private javax.swing.JLabel lblTime1;
+    private javax.swing.JTextField txtAddress;
+    private static com.toedter.calendar.JDateChooser txtBirthdate;
+    private javax.swing.JTextField txtLastName;
     private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtName1;
     private javax.swing.JPasswordField txtPassword;
+    private javax.swing.JTextField txtPhoneNumber;
     private javax.swing.JPasswordField txtRegisterPassword1;
     private javax.swing.JPasswordField txtRegisterPassword2;
-    private javax.swing.JPasswordField txtRegisterPassword3;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
