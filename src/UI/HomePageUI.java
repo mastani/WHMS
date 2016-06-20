@@ -117,7 +117,9 @@ public class HomePageUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new HomePageUI().setVisible(true);
+                HomePageUI hpui = new HomePageUI();
+                hpui.setVisible(true);
+                hpui.setLocationRelativeTo(null);
             }
         });
     }

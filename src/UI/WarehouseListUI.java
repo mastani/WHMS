@@ -24,7 +24,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblWarehouses = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        btnBackWarehouse = new javax.swing.JButton();
         btnAddWarehouse = new javax.swing.JButton();
         btnDeleteWarehouse = new javax.swing.JButton();
 
@@ -63,8 +63,13 @@ public class WarehouseListUI extends javax.swing.JFrame {
         tblWarehouses.setName(""); // NOI18N
         jScrollPane1.setViewportView(tblWarehouses);
 
-        jButton1.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
-        jButton1.setText("بازگشت");
+        btnBackWarehouse.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnBackWarehouse.setText("بازگشت");
+        btnBackWarehouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackWarehouseActionPerformed(evt);
+            }
+        });
 
         btnAddWarehouse.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         btnAddWarehouse.setText("اضافه کردن انبار");
@@ -98,7 +103,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jButton1)
+                                .addComponent(btnBackWarehouse)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnAddWarehouse)
                                 .addGap(18, 18, 18)
@@ -115,7 +120,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btnBackWarehouse)
                     .addComponent(btnAddWarehouse)
                     .addComponent(btnDeleteWarehouse))
                 .addGap(24, 24, 24))
@@ -148,6 +153,11 @@ public class WarehouseListUI extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_btnDeleteWarehouseActionPerformed
+
+    private void btnBackWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackWarehouseActionPerformed
+        HomePageUI.main(new String[0]);
+        setVisible(false);
+    }//GEN-LAST:event_btnBackWarehouseActionPerformed
 
     public static void loadTable() {
         // Load table
@@ -220,8 +230,8 @@ public class WarehouseListUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddWarehouse;
+    private javax.swing.JButton btnBackWarehouse;
     private javax.swing.JButton btnDeleteWarehouse;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable tblWarehouses;
