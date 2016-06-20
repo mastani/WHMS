@@ -17,6 +17,7 @@ public class WareListUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(235, 253, 253));
 
         jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jButton1.setText("مشاهده کالاهای موجود");

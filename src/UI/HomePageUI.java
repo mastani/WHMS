@@ -20,6 +20,8 @@ public class HomePageUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("WareHouse Main Page");
+        setBackground(new java.awt.Color(235, 253, 253));
+        setResizable(false);
 
         jButton4.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jButton4.setText("لیست مشتریان");
