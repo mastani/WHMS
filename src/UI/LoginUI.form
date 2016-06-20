@@ -463,9 +463,9 @@
                       <Font name="B Nazanin" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/exitResized.png"/>
+                      <Image iconType="3" name="/enter.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#x644;&#x63a;&#x648;"/>
+                    <Property name="text" type="java.lang.String" value="&#x62b;&#x628;&#x62a; &#x646;&#x627;&#x645;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegisterActionPerformed"/>
@@ -527,9 +527,9 @@
                       <Font name="B Nazanin" size="14" style="1"/>
                     </Property>
                     <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                      <Image iconType="3" name="/enter.png"/>
+                      <Image iconType="3" name="/exitResized.png"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="&#x62b;&#x628;&#x62a; &#x646;&#x627;&#x645;"/>
+                    <Property name="text" type="java.lang.String" value="&#x67e;&#x627;&#x6a9; &#x6a9;&#x631;&#x62f;&#x646;"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnRegister1ActionPerformed"/>

@@ -194,8 +194,8 @@ public class LoginUI extends javax.swing.JFrame {
         txtRegisterPassword1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
 
         btnRegister.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
-        btnRegister.setText("لغو");
+        btnRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/enter.png"))); // NOI18N
+        btnRegister.setText("ثبت نام");
         btnRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegisterActionPerformed(evt);
@@ -219,8 +219,8 @@ public class LoginUI extends javax.swing.JFrame {
         chkTerms.setText("با قوانین و مقررات موافقم");
 
         btnRegister1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        btnRegister1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/enter.png"))); // NOI18N
-        btnRegister1.setText("ثبت نام");
+        btnRegister1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
+        btnRegister1.setText("پاک کردن");
         btnRegister1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegister1ActionPerformed(evt);
