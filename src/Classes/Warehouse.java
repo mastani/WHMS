@@ -74,13 +74,20 @@ public class Warehouse {
     }
     
     public static void insertWarehouse(Warehouse warehouse) {
-        Database.DB.simpleQuery("INSERT INTO warehouse (name, state) VALUES (\"" + warehouse.getName() + "\", " + String.valueOf(warehouse.getState()) + ")");
-        loadWarehouses();
+        int id = Database.DB.QueryWithID("INSERT INTO warehouse (name, state) VALUES (\"" + warehouse.getName() + "\", " + String.valueOf(warehouse.getState()) + ")");
+        warehouse.setWarehouseID(id);
+        WarehousesHolder.add(warehouse);
     }
     
-    public static void deleteWarehouse(String warehouse_ID) {
+    public static void deleteWarehouse(int warehouse_ID) {
         Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + warehouse_ID);
-        loadWarehouses();
+        
+        for (Warehouse wh : WarehousesHolder) {
+            if( warehouse_ID == wh.getWarehouse_ID()) {
+                WarehousesHolder.removeElement(wh);
+                break;
+            }
+        }
     }
     
 }

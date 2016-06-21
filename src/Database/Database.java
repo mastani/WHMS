@@ -55,4 +55,21 @@ public class Database {
             return null;
         }
     }
+    
+    public int QueryWithID(String query) {
+        int id = 0;
+        
+        try {
+            Statement stmt = conn.createStatement();
+            stmt.executeUpdate(query, Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs = stmt.getGeneratedKeys();
+            if (rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id;
+    }
 }

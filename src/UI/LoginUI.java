@@ -489,19 +489,27 @@ public class LoginUI extends javax.swing.JFrame {
                 Date date = new Date();
                 txtBirthdate.setDate(date);
                 
+            }
+        });
+        
+        Runnable r = new Runnable() {
+            public void run() {
                 try {
-                    URL url = this.getClass().getClassLoader().getResource("gameover.wav");
+                    URL url = this.getClass().getClassLoader().getResource("Steps_To_Paradise-short.wav");
                     AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
                     // Get a sound clip resource.
                     Clip clip = AudioSystem.getClip();
                     // Open audio clip and load samples from the audio input stream.
                     clip.open(audioIn);
+                    clip.loop(10000);
                     clip.start();
                 } catch (Exception ex) {
                     
                 }
             }
-        });
+        };
+        
+        new Thread(r).start();
         
         ActionListener taskPerformer = new ActionListener() {
             @Override

@@ -188,9 +188,6 @@ public class HomePageUI extends javax.swing.JFrame {
             }
         });
         
-        // Inizialize Objects
-        Warehouse.loadWarehouses();
-        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
