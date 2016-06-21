@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Database.Database;
+import Database.*;
 import UI.HomePageUI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -74,20 +74,23 @@ public class Warehouse {
     }
     
     public static void insertWarehouse(Warehouse warehouse) {
-        int id = Database.DB.QueryWithID("INSERT INTO warehouse (name, state) VALUES (\"" + warehouse.getName() + "\", " + String.valueOf(warehouse.getState()) + ")");
+        int id = Queries.insertWarehouseQuery(warehouse);        
         warehouse.setWarehouseID(id);
         WarehousesHolder.add(warehouse);
     }
     
     public static void deleteWarehouse(int warehouse_ID) {
-        Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + warehouse_ID);
+        Warehouse warehouse = null;
         
         for (Warehouse wh : WarehousesHolder) {
             if( warehouse_ID == wh.getWarehouse_ID()) {
-                WarehousesHolder.removeElement(wh);
+                warehouse = wh;
                 break;
             }
         }
+        
+        Queries.deleteWarehouseQuery(warehouse);
+        WarehousesHolder.removeElement(warehouse);
     }
     
 }

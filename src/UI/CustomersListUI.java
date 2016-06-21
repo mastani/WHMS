@@ -1,5 +1,12 @@
 package UI;
 
+import Classes.Person;
+import Classes.Warehouse;
+import static UI.WarehouseListUI.loadTable;
+import java.awt.Dimension;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class CustomersListUI extends javax.swing.JFrame {
 
     public CustomersListUI() {
@@ -64,6 +71,11 @@ public class CustomersListUI extends javax.swing.JFrame {
         btnAddCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         btnAddCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         btnAddCustomer.setText("اضافه کردن مشتری");
+        btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddCustomerActionPerformed(evt);
+            }
+        });
 
         btnDeleteCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         btnDeleteCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
@@ -78,32 +90,31 @@ public class CustomersListUI extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(115, 115, 115)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(230, 230, 230))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnBackCustomer)
-                .addGap(18, 18, 18)
-                .addComponent(btnAddCustomer)
-                .addGap(18, 18, 18)
-                .addComponent(btnDeleteCustomer)
-                .addContainerGap(85, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBackCustomer)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnAddCustomer)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDeleteCustomer)
+                        .addContainerGap(273, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addGap(16, 16, 16)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 270, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBackCustomer)
@@ -121,9 +132,64 @@ public class CustomersListUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
-        // TODO add your handling code here:
+        try {
+            int rowID = tblCustomers.getSelectedRow();
+            int tableID = Integer.valueOf(tblCustomers.getModel().getValueAt(rowID, 0).toString());
+            String rowText = tblCustomers.getModel().getValueAt(rowID, 1).toString();
+
+            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                Person
+                Warehouse.deleteWarehouse(tableID);
+                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+                loadTable();
+            }
+            
+        } catch (Exception ex) {
+            
+        }
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
+    private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
+        String newRow = JOptionPane.showInputDialog(null, "نام مشتری را وارد کنید", "افزودن مشتری", JOptionPane.PLAIN_MESSAGE);
+        
+        if (!newRow.isEmpty()) {
+            Warehouse.insertWarehouse(new Warehouse(0, newRow, 0));
+            JOptionPane.showMessageDialog(null, "با موفقیت اضافه شد!");
+        }
+        
+        loadTable();
+    }//GEN-LAST:event_btnAddCustomerActionPerformed
+
+    public static void loadTable() {
+        // Load table
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 5;
+
+        tableModel.addColumn("شماره مشتری");
+        tableModel.addColumn("نام مشتری");
+        tableModel.addColumn("تاریخ تولد");
+        tableModel.addColumn("شماره تلفن");
+        tableModel.addColumn("آدرس");
+
+        Object[] row = new Object[columnCount];
+
+        for (Person ps : Person.PersonsHolder) {
+            row[0] = ps.getID();
+            row[1] = ps.getName() + " " + ps.getSurName();
+            row[2] = ps.getBirthDate().toString();
+            row[3] = ps.getCellNumber();
+            row[4] = ps.getAddress();
+            tableModel.addRow(row);
+        }
+
+        tblCustomers.setModel(tableModel);
+
+        Dimension tableSize =  tblCustomers.getPreferredSize();
+        tblCustomers.getColumnModel().getColumn(0).setPreferredWidth(Math.round(tableSize.width*0.1f));
+        //tblCustomers.getColumnModel().getColumn(1).setPreferredWidth(Math.round(tableSize.width*0.85f));
+        //tblCustomers.getColumnModel().getColumn(2).setPreferredWidth(Math.round(tableSize.width*0.25f));
+    }
     
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -155,6 +221,8 @@ public class CustomersListUI extends javax.swing.JFrame {
                 CustomersListUI clui = new CustomersListUI();
                 clui.setVisible(true);
                 clui.setLocationRelativeTo(null);
+                
+                loadTable();
             }
         });
     }
@@ -165,6 +233,6 @@ public class CustomersListUI extends javax.swing.JFrame {
     private javax.swing.JButton btnDeleteCustomer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblCustomers;
+    private static javax.swing.JTable tblCustomers;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,5 @@
 
+import Classes.Person;
 import Classes.Warehouse;
 import Database.Database;
 import UI.LoginUI;
@@ -10,6 +11,7 @@ public class Initialize {
         
         // Inizialize Objects
         Warehouse.loadWarehouses();
+        Person.loadPersons();
         
         LoginUI.main(args);
     }

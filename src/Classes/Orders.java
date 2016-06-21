@@ -1,7 +1,7 @@
 
 package Classes;
 
-import Functions.Date;
+import Functions.Date1;
 
 
 public class Orders {
@@ -9,13 +9,13 @@ public class Orders {
     //Fields:
     
     private int order_ID;
-    private Date delivery_time;
-    private Date order_time;
+    private Date1 delivery_time;
+    private Date1 order_time;
     
     //Constructors:
     
     Orders(){};
-    Orders(int order_ID, Date delivery_time, Date order_time){
+    Orders(int order_ID, Date1 delivery_time, Date1 order_time){
         
         this.order_ID = order_ID;
         this.delivery_time = delivery_time;
@@ -30,12 +30,12 @@ public class Orders {
             this.order_ID = order_ID;
     }
     
-    public void setDelivery_Time(Date delivery_time){
+    public void setDelivery_Time(Date1 delivery_time){
         
         this.delivery_time = delivery_time;
     }
     
-    public void setOrder_Time(Date order_time){
+    public void setOrder_Time(Date1 order_time){
         
         this.order_time = order_time;
     }
@@ -47,12 +47,12 @@ public class Orders {
         return order_ID;
     }
     
-    public Date getDelivery_Time(){
+    public Date1 getDelivery_Time(){
         
         return delivery_time;
     }
     
-    public Date getOrder_Time(){
+    public Date1 getOrder_Time(){
         
         return order_time;
     }
