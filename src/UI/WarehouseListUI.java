@@ -140,7 +140,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
     private void btnDeleteWarehouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteWarehouseActionPerformed
         try {
             int rowID = tblWarehouses.getSelectedRow();
-            int tableID = Integer.valueOf(tblWarehouses.getModel().getValueAt(rowID, 0).toString());;
+            int tableID = Integer.valueOf(tblWarehouses.getModel().getValueAt(rowID, 0).toString());
             String rowText = tblWarehouses.getModel().getValueAt(rowID, 1).toString();
 
             int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);

@@ -1,5 +1,5 @@
 
-package Classes;
+package Functions;
 
 import javax.swing.JOptionPane;
 
