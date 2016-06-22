@@ -31,7 +31,7 @@ public class WarehouseListUI extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setPreferredSize(new java.awt.Dimension(90, 40));
 
-        tblWarehouses.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
+        tblWarehouses.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         tblWarehouses.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
