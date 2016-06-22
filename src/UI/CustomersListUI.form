@@ -38,7 +38,9 @@
                       <Component id="btnAddCustomer" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="btnDeleteCustomer" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="263" max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="112" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -57,6 +59,7 @@
                   <Component id="btnBackCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnAddCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDeleteCustomer" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -119,7 +122,7 @@
     <Component class="javax.swing.JButton" name="btnBackCustomer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="B Nazanin" size="12" style="1"/>
+          <Font name="B Nazanin" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/undoResized.png"/>
@@ -133,7 +136,7 @@
     <Component class="javax.swing.JButton" name="btnAddCustomer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="B Nazanin" size="12" style="1"/>
+          <Font name="B Nazanin" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/add.png"/>
@@ -147,7 +150,7 @@
     <Component class="javax.swing.JButton" name="btnDeleteCustomer">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="B Nazanin" size="12" style="1"/>
+          <Font name="B Nazanin" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/close (1).png"/>
@@ -157,6 +160,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteCustomerActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="B Nazanin" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/searchResized.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x62c;&#x633;&#x62a; &#x648; &#x62c;&#x648;"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

@@ -23,6 +23,7 @@ public class CustomersListUI extends javax.swing.JFrame {
         btnBackCustomer = new javax.swing.JButton();
         btnAddCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -59,7 +60,7 @@ public class CustomersListUI extends javax.swing.JFrame {
         tblCustomers.setName(""); // NOI18N
         jScrollPane1.setViewportView(tblCustomers);
 
-        btnBackCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnBackCustomer.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnBackCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
         btnBackCustomer.setText("بازگشت");
         btnBackCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -68,7 +69,7 @@ public class CustomersListUI extends javax.swing.JFrame {
             }
         });
 
-        btnAddCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnAddCustomer.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnAddCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
         btnAddCustomer.setText("اضافه کردن مشتری");
         btnAddCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -77,7 +78,7 @@ public class CustomersListUI extends javax.swing.JFrame {
             }
         });
 
-        btnDeleteCustomer.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnDeleteCustomer.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnDeleteCustomer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
         btnDeleteCustomer.setText("حذف مشتری");
         btnDeleteCustomer.addActionListener(new java.awt.event.ActionListener() {
@@ -85,6 +86,10 @@ public class CustomersListUI extends javax.swing.JFrame {
                 btnDeleteCustomerActionPerformed(evt);
             }
         });
+
+        jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchResized.png"))); // NOI18N
+        jButton1.setText("جست و جو");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -104,7 +109,9 @@ public class CustomersListUI extends javax.swing.JFrame {
                         .addComponent(btnAddCustomer)
                         .addGap(18, 18, 18)
                         .addComponent(btnDeleteCustomer)
-                        .addGap(0, 263, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1)
+                        .addGap(0, 112, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -118,7 +125,8 @@ public class CustomersListUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBackCustomer)
                     .addComponent(btnAddCustomer)
-                    .addComponent(btnDeleteCustomer))
+                    .addComponent(btnDeleteCustomer)
+                    .addComponent(jButton1))
                 .addContainerGap())
         );
 
@@ -230,6 +238,7 @@ public class CustomersListUI extends javax.swing.JFrame {
     private javax.swing.JButton btnAddCustomer;
     private javax.swing.JButton btnBackCustomer;
     private javax.swing.JButton btnDeleteCustomer;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable tblCustomers;
