@@ -132,22 +132,22 @@ public class CustomersListUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
-        try {
-            int rowID = tblCustomers.getSelectedRow();
-            int tableID = Integer.valueOf(tblCustomers.getModel().getValueAt(rowID, 0).toString());
-            String rowText = tblCustomers.getModel().getValueAt(rowID, 1).toString();
-
-            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
-            if (reply == JOptionPane.YES_OPTION) {
-                Person
-                Warehouse.deleteWarehouse(tableID);
-                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
-                loadTable();
-            }
-            
-        } catch (Exception ex) {
-            
-        }
+//        try {
+//            int rowID = tblCustomers.getSelectedRow();
+//            int tableID = Integer.valueOf(tblCustomers.getModel().getValueAt(rowID, 0).toString());
+//            String rowText = tblCustomers.getModel().getValueAt(rowID, 1).toString();
+//
+//            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
+//            if (reply == JOptionPane.YES_OPTION) {
+//                Person
+//                Warehouse.deleteWarehouse(tableID);
+//                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+//                loadTable();
+//            }
+//            
+//        } catch (Exception ex) {
+//            
+//        }
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
