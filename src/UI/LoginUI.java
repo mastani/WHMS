@@ -85,12 +85,12 @@ public class LoginUI extends javax.swing.JFrame {
             }
         });
 
-        txtUsername.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        txtUsername.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
         jLabel5.setText("کلمه عبور :");
 
-        txtPassword.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        txtPassword.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         btnExit.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnExit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/exitResized.png"))); // NOI18N
@@ -162,7 +162,7 @@ public class LoginUI extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(46, 46, 46)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap(218, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("ورود به ناحیه کاربری", jPanel1);
