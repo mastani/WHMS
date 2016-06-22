@@ -1,5 +1,13 @@
 package UI;
 
+import Classes.Customer;
+import Classes.Warehouse;
+import Classes.WarehouseKeeper;
+import static UI.WarehouseListUI.loadTable;
+import java.awt.Dimension;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class ListOfUsersUI extends javax.swing.JFrame {
 
     public ListOfUsersUI() {
@@ -12,9 +20,9 @@ public class ListOfUsersUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblUsers = new javax.swing.JTable();
         btnBackUsers = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnDeleteUser = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -26,8 +34,8 @@ public class ListOfUsersUI extends javax.swing.JFrame {
         jLabel1.setName(""); // NOI18N
         jLabel1.setPreferredSize(new java.awt.Dimension(90, 40));
 
-        jTable1.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblUsers.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
+        tblUsers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -46,11 +54,11 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setToolTipText("");
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setName(""); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
+        tblUsers.setToolTipText("");
+        tblUsers.setColumnSelectionAllowed(true);
+        tblUsers.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblUsers.setName(""); // NOI18N
+        jScrollPane1.setViewportView(tblUsers);
 
         btnBackUsers.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         btnBackUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
@@ -61,9 +69,14 @@ public class ListOfUsersUI extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
-        jButton2.setText("حذف کاربر");
+        btnDeleteUser.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnDeleteUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
+        btnDeleteUser.setText("حذف کاربر");
+        btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteUserActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -83,7 +96,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(btnBackUsers)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2)))
+                                .addComponent(btnDeleteUser)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -97,7 +110,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBackUsers)
-                    .addComponent(jButton2))
+                    .addComponent(btnDeleteUser))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -109,6 +122,54 @@ public class ListOfUsersUI extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnBackUsersActionPerformed
 
+    private void btnDeleteUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteUserActionPerformed
+        try {
+            int rowID = tblUsers.getSelectedRow();
+            int tableID = Integer.valueOf(tblUsers.getModel().getValueAt(rowID, 0).toString());
+            String rowText = tblUsers.getModel().getValueAt(rowID, 1).toString();
+
+            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                WarehouseKeeper.deleteWarehouseKeeper(tableID);
+                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+                loadTable();
+            }
+            
+        } catch (Exception ex) {
+            
+        }
+    }//GEN-LAST:event_btnDeleteUserActionPerformed
+
+    public static void loadTable() {
+        // Load table
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 5;
+
+        tableModel.addColumn("کد پرسنلی");
+        tableModel.addColumn("نام و نام خانوادگی");
+        tableModel.addColumn("تاریخ تولد");
+        tableModel.addColumn("شماره تلفن");
+        tableModel.addColumn("آدرس");
+
+        Object[] row = new Object[columnCount];
+
+        for (WarehouseKeeper ps : WarehouseKeeper.WarehouseKeeperHolder) {
+            row[0] = ps.getPersonnelCode();
+            row[1] = ps.getName() + " " + ps.getSurName();
+            row[2] = ps.getBirthDate().toString();
+            row[3] = ps.getCellNumber();
+            row[4] = ps.getAddress();
+            tableModel.addRow(row);
+        }
+
+        tblUsers.setModel(tableModel);
+
+        Dimension tableSize =  tblUsers.getPreferredSize();
+        tblUsers.getColumnModel().getColumn(0).setPreferredWidth(Math.round(tableSize.width*0.1f));
+        //tblCustomers.getColumnModel().getColumn(1).setPreferredWidth(Math.round(tableSize.width*0.85f));
+        //tblCustomers.getColumnModel().getColumn(2).setPreferredWidth(Math.round(tableSize.width*0.25f));
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -139,15 +200,17 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 ListOfUsersUI louui = new ListOfUsersUI();
                 louui.setVisible(true);
                 louui.setLocationRelativeTo(null);
+                
+                loadTable();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackUsers;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnDeleteUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable tblUsers;
     // End of variables declaration//GEN-END:variables
 }

@@ -9,7 +9,6 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public class Ware {
     
     public static Vector<Ware> WaresHolder;

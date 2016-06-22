@@ -3,6 +3,7 @@ package Database;
 import Classes.Person;
 import Classes.Ware;
 import Classes.Warehouse;
+import Classes.WarehouseKeeper;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -121,5 +122,9 @@ public class Queries {
     
     public static void deleteWareQuery(Ware ware) {
         Database.DB.simpleQuery("DELETE FROM ware WHERE ware_ID = " + ware.getWareID());
+    }
+    
+    public static void deleteWarehouseKeeper(WarehouseKeeper warehouse_keeper) {
+        Database.DB.simpleQuery("DELETE FROM warehouse_keeper WHERE personnel_code = " + warehouse_keeper.getPersonnelCode());
     }
 }
