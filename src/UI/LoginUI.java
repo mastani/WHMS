@@ -370,6 +370,8 @@ public class LoginUI extends javax.swing.JFrame {
             if(login) {
                 HomePageUI.main(new String[0]);
                 setVisible(false);
+            } else {
+                JOptionPane.showMessageDialog(null, "نام کاربری یا کلمه عبور اشتباه است!");
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
@@ -377,7 +379,7 @@ public class LoginUI extends javax.swing.JFrame {
     private void btnRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterActionPerformed
         String name = txtName.getText();
         String lastName = txtLastName.getText();
-        String birthDate = txtBirthdate.getDateFormatString();
+        Date birthDate = txtBirthdate.getDate();
         String password = txtRegisterPassword1.getText();
         String confirm = txtRegisterPassword2.getText();
         String phoneNumber = txtPhoneNumber.getText();
@@ -398,13 +400,6 @@ public class LoginUI extends javax.swing.JFrame {
             error = true;
         } else {
             lblLastName.setForeground(Color.black);
-            error = false;
-        }
-        if (birthDate.length() == 0) {
-            lblBirthdate.setForeground(Color.red);
-            error = true;
-        } else {
-            lblBirthdate.setForeground(Color.black);
             error = false;
         }
         if (password.length() == 0) {
@@ -447,11 +442,11 @@ public class LoginUI extends javax.swing.JFrame {
         if (error)
             return;
         
-//        boolean register = Queries.registerAccount(username, password);
-//        if (register)
-//            JOptionPane.showMessageDialog(null, "ثبت نام شما با موفقیت انجام شد!");
-//        else
-//            JOptionPane.showMessageDialog(null, "ثبت نام دچار مشکل شد!");
+        int person_ID = Queries.registerAccount(name, lastName, birthDate, phoneNumber, address, password);
+        if (person_ID != 0)
+            JOptionPane.showMessageDialog(null, "ثبت نام شما با موفقیت انجام شد!\nکد پرسنلی : " + person_ID + "\nکلمه عبور: " + password);
+        else
+            JOptionPane.showMessageDialog(null, "ثبت نام دچار مشکل شد!");
     }//GEN-LAST:event_btnRegisterActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
@@ -459,7 +454,12 @@ public class LoginUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
-        // TODO add your handling code here:
+        txtName.setText("");
+        txtLastName.setText("");
+        txtRegisterPassword1.setText("");
+        txtRegisterPassword2.setText("");
+        txtPhoneNumber.setText("");
+        txtAddress.setText("");
     }//GEN-LAST:event_btnClearActionPerformed
 
     public static void main(String args[]) {        

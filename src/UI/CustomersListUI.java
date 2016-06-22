@@ -1,5 +1,7 @@
 package UI;
 
+import Classes.Customer;
+import static Classes.Customer.CustomersHolder;
 import Classes.Person;
 import Classes.Warehouse;
 import static UI.WarehouseListUI.loadTable;
@@ -173,7 +175,7 @@ public class CustomersListUI extends javax.swing.JFrame {
 
         Object[] row = new Object[columnCount];
 
-        for (Person ps : Person.PersonsHolder) {
+        for (Customer ps : Customer.CustomersHolder) {
             row[0] = ps.getID();
             row[1] = ps.getName() + " " + ps.getSurName();
             row[2] = ps.getBirthDate().toString();
