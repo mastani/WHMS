@@ -1,5 +1,13 @@
 package UI;
 
+import Classes.Ware;
+import Classes.Warehouse;
+import static UI.WarehouseListUI.loadTable;
+import java.awt.Dimension;
+import java.util.Vector;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 public class WareManagementUI extends javax.swing.JFrame {
 
     public WareManagementUI() {
@@ -10,23 +18,23 @@ public class WareManagementUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton4 = new javax.swing.JButton();
+        btnFindWare = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnBackWareManagement = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tblWares = new javax.swing.JTable();
+        btnAddWare = new javax.swing.JButton();
+        btnDeleteWare = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(235, 253, 253));
 
-        jButton4.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchResized.png"))); // NOI18N
-        jButton4.setText("جست و جو");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnFindWare.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnFindWare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchResized.png"))); // NOI18N
+        btnFindWare.setText("جست و جو");
+        btnFindWare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnFindWareActionPerformed(evt);
             }
         });
 
@@ -46,8 +54,8 @@ public class WareManagementUI extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblWares.setFont(new java.awt.Font("B Nazanin", 0, 14)); // NOI18N
+        tblWares.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -66,15 +74,25 @@ public class WareManagementUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tblWares);
 
-        jButton3.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
-        jButton3.setText("افزودن کالا ");
+        btnAddWare.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnAddWare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/add.png"))); // NOI18N
+        btnAddWare.setText("افزودن کالا ");
+        btnAddWare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddWareActionPerformed(evt);
+            }
+        });
 
-        jButton2.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
-        jButton2.setText("حذف کالا");
+        btnDeleteWare.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnDeleteWare.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
+        btnDeleteWare.setText("حذف کالا");
+        btnDeleteWare.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteWareActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -89,11 +107,11 @@ public class WareManagementUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnBackWareManagement)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton4)
+                        .addComponent(btnFindWare)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton3)
+                        .addComponent(btnAddWare)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2)
+                        .addComponent(btnDeleteWare)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(19, 19, 19))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -112,24 +130,104 @@ public class WareManagementUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBackWareManagement, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton4)
-                        .addComponent(jButton3)
-                        .addComponent(jButton2)))
+                        .addComponent(btnFindWare)
+                        .addComponent(btnAddWare)
+                        .addComponent(btnDeleteWare)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnAddWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddWareActionPerformed
+        WareRegistrationJframe.main(new String[0]);
+        setVisible(false);
+    }//GEN-LAST:event_btnAddWareActionPerformed
+
     private void btnBackWareManagementActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackWareManagementActionPerformed
         HomePageUI.main(new String[0]);
         setVisible(false);
     }//GEN-LAST:event_btnBackWareManagementActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void btnDeleteWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteWareActionPerformed
+        try {
+            int rowID = tblWares.getSelectedRow();
+            int tableID = Integer.valueOf(tblWares.getModel().getValueAt(rowID, 0).toString());
+            String rowText = tblWares.getModel().getValueAt(rowID, 2).toString();
 
+            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                Ware.deleteWare(tableID);
+                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+                loadTable();
+            }
+            
+        } catch (Exception ex) {
+            
+        }
+    }//GEN-LAST:event_btnDeleteWareActionPerformed
+
+    private void btnFindWareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFindWareActionPerformed
+        String delRow = JOptionPane.showInputDialog(null, "نام کالا را وارد کنید :", "جستجو کالا", JOptionPane.PLAIN_MESSAGE);
+        Vector<Ware> result = Ware.findWare(delRow);
+        
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 6;
+
+        tableModel.addColumn("شماره کالا");
+        tableModel.addColumn("انبار");
+        tableModel.addColumn("نام کالا");
+        tableModel.addColumn("نوع کالا");
+        tableModel.addColumn("قیمت کالا");
+        tableModel.addColumn("تعداد موجودی");
+        
+        Object[] row = new Object[columnCount];
+        
+        for (Ware wh : result) {
+            row[0] = wh.getWareID();
+            row[1] = Warehouse.findWarehouse(wh.getWarehouseID());
+            row[2] = wh.getWare_Name();
+            row[3] = wh.getWare_Kind();
+            row[4] = wh.getWare_Price();
+            row[5] = wh.getWare_Size();
+            tableModel.addRow(row);
+        }
+
+        tblWares.setModel(tableModel);
+    }//GEN-LAST:event_btnFindWareActionPerformed
+
+    public static void loadTable() {
+        // Load table
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 6;
+
+        tableModel.addColumn("شماره کالا");
+        tableModel.addColumn("انبار");
+        tableModel.addColumn("نام کالا");
+        tableModel.addColumn("نوع کالا");
+        tableModel.addColumn("قیمت کالا");        
+        tableModel.addColumn("تعداد موجودی");
+        
+        Object[] row = new Object[columnCount];
+
+        for (Ware wh : Ware.WaresHolder) {
+            row[0] = wh.getWareID();
+            row[1] = Warehouse.findWarehouse(wh.getWarehouseID());
+            row[2] = wh.getWare_Name();
+            row[3] = wh.getWare_Kind();
+            row[4] = wh.getWare_Price();
+            row[5] = wh.getWare_Size();
+            tableModel.addRow(row);
+        }
+
+        tblWares.setModel(tableModel);
+
+//        Dimension tableSize =  tblWarehouses.getPreferredSize();
+//        tblWarehouses.getColumnModel().getColumn(0).setPreferredWidth(Math.round(tableSize.width*0.35f));
+//        tblWarehouses.getColumnModel().getColumn(1).setPreferredWidth(Math.round(tableSize.width*0.85f));
+//        tblWarehouses.getColumnModel().getColumn(2).setPreferredWidth(Math.round(tableSize.width*0.25f));
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -161,17 +259,19 @@ public class WareManagementUI extends javax.swing.JFrame {
                 WareManagementUI wmui = new WareManagementUI();
                 wmui.setVisible(true);
                 wmui.setLocationRelativeTo(null);
+                
+                loadTable();
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAddWare;
     private javax.swing.JButton btnBackWareManagement;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnDeleteWare;
+    private javax.swing.JButton btnFindWare;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable tblWares;
     // End of variables declaration//GEN-END:variables
 }

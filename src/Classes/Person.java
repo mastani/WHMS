@@ -1,13 +1,5 @@
 package Classes;
 
-import static Classes.Warehouse.WarehousesHolder;
-import Database.*;
-import UI.HomePageUI;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.Vector;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.Date;
 

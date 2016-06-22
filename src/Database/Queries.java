@@ -1,6 +1,7 @@
 package Database;
 
 import Classes.Person;
+import Classes.Ware;
 import Classes.Warehouse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -92,5 +93,33 @@ public class Queries {
     public static int insertPersonQuery(Person person) {
         int person_id = insertPerson(person.getName(), person.getSurName(), person.getBirthDate(), person.getCellNumber(), person.getAddress());
         return 0;
+    }
+    
+    public static int insertWare(Ware ware) {
+        int id = 0;
+        
+        try {
+            PreparedStatement ps = Database.conn.prepareStatement("INSERT INTO ware (warehouse_ID, ware_kind, ware_name, ware_price, ware_size) VALUES (?, ?, ?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, ware.getWarehouseID());
+            ps.setString(2, ware.getWare_Kind());
+            ps.setString(3, ware.getWare_Name());
+            ps.setInt(4, ware.getWare_Price());
+            ps.setInt(5, ware.getWare_Size());
+            
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Queries.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id;
+    }
+    
+    public static void deleteWareQuery(Ware ware) {
+        Database.DB.simpleQuery("DELETE FROM ware WHERE ware_ID = " + ware.getWareID());
     }
 }

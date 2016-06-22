@@ -73,6 +73,30 @@ public class Warehouse {
         }
     }
     
+    public static String findWarehouse(int warehouse_ID) {
+        String f_warehouse_ID = null;
+        
+        for (Warehouse wh : WarehousesHolder) {
+            if( warehouse_ID == wh.getWarehouse_ID()) {
+                f_warehouse_ID = wh.getName();
+            }
+        }
+        
+        return f_warehouse_ID;
+    }
+    
+    public static int findWarehouse(String warehouse_Name) {
+        int f_warehouse_ID = 0;
+        
+        for (Warehouse wh : WarehousesHolder) {
+            if( warehouse_Name.equals(wh.getName()) ) {
+                f_warehouse_ID = wh.getWarehouse_ID();
+            }
+        }
+        
+        return f_warehouse_ID;
+    }
+    
     public static void insertWarehouse(Warehouse warehouse) {
         int id = Queries.insertWarehouseQuery(warehouse);        
         warehouse.setWarehouseID(id);
