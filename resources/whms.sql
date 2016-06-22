@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.12, for osx10.9 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.9, for Win64 (x86_64)
 --
--- Host: localhost    Database: whms
+-- Host: 127.0.0.1    Database: whms
 -- ------------------------------------------------------
--- Server version	5.6.26
+-- Server version	5.5.5-10.1.9-MariaDB
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -16,23 +16,16 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `invoice`
+-- Table structure for table `customer`
 --
 
-DROP TABLE IF EXISTS `invoice`;
+DROP TABLE IF EXISTS `customer`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `invoice` (
-  `invoice_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `num_of_ware` int(10) unsigned NOT NULL,
-  `ware_description` text COLLATE utf8_persian_ci NOT NULL,
-  `personnel_code` int(10) unsigned NOT NULL,
-  `ware_ID` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`invoice_ID`),
-  KEY `ware_ID_idx` (`ware_ID`),
-  KEY `sdcsdf_idx` (`personnel_code`),
-  CONSTRAINT `f_personnel_code` FOREIGN KEY (`personnel_code`) REFERENCES `warehouse_keeper` (`personnel_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `f_ware_ID` FOREIGN KEY (`ware_ID`) REFERENCES `ware` (`ware_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+CREATE TABLE `customer` (
+  `customer_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`customer_ID`),
+  CONSTRAINT `fk_customer_id_person` FOREIGN KEY (`customer_ID`) REFERENCES `person` (`person_ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,15 +41,12 @@ CREATE TABLE `orders` (
   `delivery_time` datetime NOT NULL,
   `order_time` datetime NOT NULL,
   `customer_ID` int(10) unsigned NOT NULL,
-  `ware_ID` int(10) unsigned NOT NULL,
   `personnel_code` int(10) unsigned NOT NULL,
   PRIMARY KEY (`order_ID`),
   KEY `customer_ID_idx` (`customer_ID`),
-  KEY `ware_ID_idx` (`ware_ID`),
   KEY `personnel_code_idx` (`personnel_code`),
-  CONSTRAINT `customer_ID` FOREIGN KEY (`customer_ID`) REFERENCES `person` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `personnel_code` FOREIGN KEY (`personnel_code`) REFERENCES `warehouse_keeper` (`personnel_code`) ON DELETE CASCADE ON UPDATE CASCADE,
-  CONSTRAINT `ware_ID` FOREIGN KEY (`ware_ID`) REFERENCES `ware` (`ware_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+  CONSTRAINT `customer_ID` FOREIGN KEY (`customer_ID`) REFERENCES `customer` (`customer_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `personnel_code` FOREIGN KEY (`personnel_code`) REFERENCES `warehouse_keeper` (`personnel_code`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -68,18 +58,14 @@ DROP TABLE IF EXISTS `person`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `person` (
-  `ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `person_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `first_name` varchar(30) COLLATE utf8_persian_ci NOT NULL,
   `surname` varchar(40) CHARACTER SET utf8 NOT NULL,
   `birth_date` date NOT NULL,
   `cell_number` text COLLATE utf8_persian_ci NOT NULL,
   `address` text COLLATE utf8_persian_ci NOT NULL,
-  `customer_ID` int(10) unsigned DEFAULT NULL,
-  `personnel_code` int(10) unsigned DEFAULT NULL,
-  PRIMARY KEY (`ID`),
-  KEY `f_personnel_code_idx` (`personnel_code`),
-  CONSTRAINT `fk_personnel_code` FOREIGN KEY (`personnel_code`) REFERENCES `warehouse_keeper` (`personnel_code`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  PRIMARY KEY (`person_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -91,12 +77,16 @@ DROP TABLE IF EXISTS `ware`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `ware` (
   `ware_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `warehouse_ID` int(10) unsigned NOT NULL,
   `ware_kind` varchar(40) COLLATE utf8_persian_ci NOT NULL,
   `ware_name` varchar(40) COLLATE utf8_persian_ci NOT NULL,
   `ware_price` int(10) unsigned NOT NULL,
   `width` int(10) unsigned NOT NULL,
   `length` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`ware_ID`)
+  PRIMARY KEY (`ware_ID`),
+  UNIQUE KEY `ware_ID_UNIQUE` (`ware_ID`),
+  KEY `warehouse_ID` (`warehouse_ID`),
+  CONSTRAINT `fk_warehouse_ware` FOREIGN KEY (`warehouse_ID`) REFERENCES `warehouse` (`warehouse_ID`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -110,9 +100,9 @@ DROP TABLE IF EXISTS `warehouse`;
 CREATE TABLE `warehouse` (
   `warehouse_ID` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) COLLATE utf8_persian_ci NOT NULL,
-  `state` tinyint(4) NOT NULL,
+  `state` tinyint(2) NOT NULL,
   PRIMARY KEY (`warehouse_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -124,9 +114,30 @@ DROP TABLE IF EXISTS `warehouse_keeper`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `warehouse_keeper` (
   `personnel_code` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `password` varchar(32) CHARACTER SET utf8 NOT NULL,
-  PRIMARY KEY (`personnel_code`)
-) ENGINE=InnoDB AUTO_INCREMENT=952 DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+  `password` text COLLATE utf8_persian_ci NOT NULL,
+  PRIMARY KEY (`personnel_code`),
+  CONSTRAINT `fk__keeper_person` FOREIGN KEY (`personnel_code`) REFERENCES `person` (`person_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `wares_in_order`
+--
+
+DROP TABLE IF EXISTS `wares_in_order`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `wares_in_order` (
+  `order_ID` int(10) unsigned NOT NULL,
+  `ware_ID` int(10) unsigned NOT NULL,
+  `num_of_ware` int(10) NOT NULL,
+  PRIMARY KEY (`order_ID`),
+  KEY `ware_ID` (`ware_ID`),
+  KEY `num_of_ware` (`num_of_ware`),
+  KEY `num_of_ware_2` (`num_of_ware`),
+  CONSTRAINT `fk_order_ID_orders` FOREIGN KEY (`order_ID`) REFERENCES `orders` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_ware_ID_ware` FOREIGN KEY (`ware_ID`) REFERENCES `ware` (`ware_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -138,4 +149,4 @@ CREATE TABLE `warehouse_keeper` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-06-21 15:27:06
+-- Dump completed on 2016-06-22 14:26:06
