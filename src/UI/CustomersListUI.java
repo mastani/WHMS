@@ -36,17 +36,17 @@ public class CustomersListUI extends javax.swing.JFrame {
         tblCustomers.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
         tblCustomers.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "شماره تلفن مشتری", "نام مشتری", "شماره مشتری"
+                "آدرس", "شماره تلفن مشتری", "تاریخ تولد", "نام مشتری", "شماره مشتری"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Object.class, java.lang.String.class, java.lang.Object.class, java.lang.String.class, java.lang.Integer.class
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -97,16 +97,15 @@ public class CustomersListUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBackCustomer)
                         .addGap(18, 18, 18)
                         .addComponent(btnAddCustomer)
                         .addGap(18, 18, 18)
                         .addComponent(btnDeleteCustomer)
-                        .addContainerGap(273, Short.MAX_VALUE))))
+                        .addGap(0, 263, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
