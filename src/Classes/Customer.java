@@ -84,4 +84,13 @@ public class Customer extends Person {
         
         return temp;
     }
+    
+    public static String findCustomer(int id) {
+        for (Customer cm : CustomersHolder) {
+            if (cm.getCustommerID() == id)
+                return cm.getName() + " " + cm.getSurName();
+        }
+        
+        return null;
+    }
 }

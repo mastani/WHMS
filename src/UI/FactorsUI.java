@@ -1,5 +1,12 @@
 package UI;
 
+import Classes.*;
+import static UI.CustomersListUI.loadTable;
+import java.awt.Dimension;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import javax.swing.table.DefaultTableModel;
+
 public class FactorsUI extends javax.swing.JFrame {
 
     public FactorsUI() {
@@ -12,7 +19,7 @@ public class FactorsUI extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tblFactors = new javax.swing.JTable();
         btnBackFactors = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -24,8 +31,8 @@ public class FactorsUI extends javax.swing.JFrame {
         jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel1.setPreferredSize(new java.awt.Dimension(90, 40));
 
-        jTable1.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblFactors.setFont(new java.awt.Font("B Nazanin", 0, 12)); // NOI18N
+        tblFactors.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -44,11 +51,11 @@ public class FactorsUI extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
-        jTable1.setToolTipText("");
-        jTable1.setColumnSelectionAllowed(true);
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTable1.setName(""); // NOI18N
-        jScrollPane1.setViewportView(jTable1);
+        tblFactors.setToolTipText("");
+        tblFactors.setColumnSelectionAllowed(true);
+        tblFactors.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblFactors.setName(""); // NOI18N
+        jScrollPane1.setViewportView(tblFactors);
 
         btnBackFactors.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
         btnBackFactors.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
@@ -99,6 +106,29 @@ public class FactorsUI extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_btnBackFactorsActionPerformed
 
+    public static void loadTable() {
+        // Load table
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 3;
+
+        tableModel.addColumn("شماره فاکتور");
+        tableModel.addColumn("نام مشتری");
+        tableModel.addColumn("زمان سفارش");
+
+        Object[] row = new Object[columnCount];
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-mm-dd");
+        
+        for (Orders ps : Orders.OrdersHolder) {
+            row[0] = ps.getOrderID();
+            row[1] = Customer.findCustomer(ps.getCustomer_ID());
+            row[2] = dateFormat.format(ps.getOrder_Time());
+            tableModel.addRow(row);
+        }
+
+        tblFactors.setModel(tableModel);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -129,6 +159,8 @@ public class FactorsUI extends javax.swing.JFrame {
                 FactorsUI fui = new FactorsUI();
                 fui.setVisible(true);
                 fui.setLocationRelativeTo(null);
+                
+                loadTable();
             }
         });
     }
@@ -137,6 +169,6 @@ public class FactorsUI extends javax.swing.JFrame {
     private javax.swing.JButton btnBackFactors;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable tblFactors;
     // End of variables declaration//GEN-END:variables
 }
