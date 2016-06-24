@@ -1,7 +1,5 @@
 package Classes;
 
-import static Classes.Ware.WaresHolder;
-import static Classes.Warehouse.WarehousesHolder;
 import Database.Database;
 import Database.Queries;
 import UI.HomePageUI;

@@ -1,5 +1,6 @@
 package Classes;
 
+import static Classes.Ware.WaresHolder;
 import Database.Database;
 import Database.Queries;
 import UI.HomePageUI;
@@ -22,7 +23,7 @@ public class Customer extends Person {
     //Constructors:
     
     Customer(){};
-    Customer(int ID, String firstName, String surName, Date birthDate, String cellNumber, String address, int customer_ID){
+    public Customer(int ID, String firstName, String surName, Date birthDate, String cellNumber, String address, int customer_ID){
         super(ID, firstName, surName, birthDate, cellNumber, address);
         this.customer_ID = customer_ID;
     }
@@ -54,10 +55,11 @@ public class Customer extends Person {
         }
     }
       
-    public static void insertCustomer(Customer customer) {
-        int id = Queries.insertPersonQuery(customer);
+    public static int insertCustomer(Customer customer) {
+        int id = Queries.insertCustomerQuery(customer);
         customer.setID(id);
         CustomersHolder.add(customer);
+        return id;
     }
     
     public static void deleteCustomer(int id) {
@@ -69,5 +71,18 @@ public class Customer extends Person {
                 break;
             }
         }
+    }
+    
+    public static Vector<Customer> findCustomer(String findStr) {
+        Vector<Customer> temp = new Vector<>(1);
+        
+        for (Customer cm : CustomersHolder) {
+            String tmp = cm.getName() + " " + cm.getSurName();
+            if( tmp.contains(findStr) ) {
+                temp.add(cm);
+            }
+        }
+        
+        return temp;
     }
 }

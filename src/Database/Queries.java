@@ -1,9 +1,6 @@
 package Database;
 
-import Classes.Person;
-import Classes.Ware;
-import Classes.Warehouse;
-import Classes.WarehouseKeeper;
+import Classes.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -91,9 +88,10 @@ public class Queries {
         Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + warehouse.getWarehouse_ID());
     }
     
-    public static int insertPersonQuery(Person person) {
-        int person_id = insertPerson(person.getName(), person.getSurName(), person.getBirthDate(), person.getCellNumber(), person.getAddress());
-        return 0;
+    public static int insertCustomerQuery(Customer customer) {
+        int person_id = insertPerson(customer.getName(), customer.getSurName(), customer.getBirthDate(), customer.getCellNumber(), customer.getAddress());
+        Database.DB.QueryWithID("INSERT INTO customer (customer_ID) VALUES (" + person_id + ")");
+        return person_id;
     }
     
     public static int insertWare(Ware ware) {

@@ -1,11 +1,10 @@
 package UI;
 
 import Classes.Customer;
-import static Classes.Customer.CustomersHolder;
-import Classes.Person;
+import Classes.Ware;
 import Classes.Warehouse;
-import static UI.WarehouseListUI.loadTable;
 import java.awt.Dimension;
+import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -25,7 +24,7 @@ public class CustomersListUI extends javax.swing.JFrame {
         btnBackCustomer = new javax.swing.JButton();
         btnAddCustomer = new javax.swing.JButton();
         btnDeleteCustomer = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btnSearch = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -90,9 +89,14 @@ public class CustomersListUI extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchResized.png"))); // NOI18N
-        jButton1.setText("جست و جو");
+        btnSearch.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/searchResized.png"))); // NOI18N
+        btnSearch.setText("جست و جو");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/printer_new-Resized.png"))); // NOI18N
@@ -113,7 +117,7 @@ public class CustomersListUI extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnDeleteCustomer)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1)
+                        .addComponent(btnSearch)
                         .addGap(18, 18, 18)
                         .addComponent(jButton2)
                         .addGap(0, 34, Short.MAX_VALUE)))
@@ -135,7 +139,7 @@ public class CustomersListUI extends javax.swing.JFrame {
                     .addComponent(btnBackCustomer)
                     .addComponent(btnAddCustomer)
                     .addComponent(btnDeleteCustomer)
-                    .addComponent(jButton1)
+                    .addComponent(btnSearch)
                     .addComponent(jButton2))
                 .addContainerGap())
         );
@@ -149,34 +153,54 @@ public class CustomersListUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackCustomerActionPerformed
 
     private void btnDeleteCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteCustomerActionPerformed
-//        try {
-//            int rowID = tblCustomers.getSelectedRow();
-//            int tableID = Integer.valueOf(tblCustomers.getModel().getValueAt(rowID, 0).toString());
-//            String rowText = tblCustomers.getModel().getValueAt(rowID, 1).toString();
-//
-//            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
-//            if (reply == JOptionPane.YES_OPTION) {
-//                Person
-//                Warehouse.deleteWarehouse(tableID);
-//                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
-//                loadTable();
-//            }
-//            
-//        } catch (Exception ex) {
-//            
-//        }
+        try {
+            int rowID = tblCustomers.getSelectedRow();
+            int tableID = Integer.valueOf(tblCustomers.getModel().getValueAt(rowID, 0).toString());
+            String rowText = tblCustomers.getModel().getValueAt(rowID, 1).toString();
+
+            int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
+            if (reply == JOptionPane.YES_OPTION) {
+                Customer.deleteCustomer(tableID);
+                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+                loadTable();
+            }
+            
+        } catch (Exception ex) {
+            
+        }
     }//GEN-LAST:event_btnDeleteCustomerActionPerformed
 
     private void btnAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCustomerActionPerformed
-        String newRow = JOptionPane.showInputDialog(null, "نام مشتری را وارد کنید", "افزودن مشتری", JOptionPane.PLAIN_MESSAGE);
-        
-        if (!newRow.isEmpty()) {
-            Warehouse.insertWarehouse(new Warehouse(0, newRow, 0));
-            JOptionPane.showMessageDialog(null, "با موفقیت اضافه شد!");
-        }
-        
-        loadTable();
+        AddingCustomerUI.main(new String[0]);
+        setVisible(false);
     }//GEN-LAST:event_btnAddCustomerActionPerformed
+
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String delRow = JOptionPane.showInputDialog(null, "نام مشتری را وارد کنید:", "جستجو مشتری", JOptionPane.PLAIN_MESSAGE);
+        Vector<Customer> result = Customer.findCustomer(delRow);
+        
+        DefaultTableModel tableModel = new DefaultTableModel();
+        int columnCount = 5;
+
+        tableModel.addColumn("شماره مشتری");
+        tableModel.addColumn("نام مشتری");
+        tableModel.addColumn("تاریخ تولد");
+        tableModel.addColumn("شماره تلفن");
+        tableModel.addColumn("آدرس");
+        
+        Object[] row = new Object[columnCount];
+        
+        for (Customer ps : result) {
+            row[0] = ps.getID();
+            row[1] = ps.getName() + " " + ps.getSurName();
+            row[2] = ps.getBirthDate().toString();
+            row[3] = ps.getCellNumber();
+            row[4] = ps.getAddress();
+            tableModel.addRow(row);
+        }
+
+        tblCustomers.setModel(tableModel);
+    }//GEN-LAST:event_btnSearchActionPerformed
 
     public static void loadTable() {
         // Load table
@@ -248,7 +272,7 @@ public class CustomersListUI extends javax.swing.JFrame {
     private javax.swing.JButton btnAddCustomer;
     private javax.swing.JButton btnBackCustomer;
     private javax.swing.JButton btnDeleteCustomer;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
