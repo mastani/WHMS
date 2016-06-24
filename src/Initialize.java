@@ -13,6 +13,7 @@ public class Initialize {
         Customer.loadCustomers();
         Ware.loadWares();
         WarehouseKeeper.loadWarehouseKeeper();
+        Orders.loadOrders();
         
         LoginUI.main(args);
     }

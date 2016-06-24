@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import Functions.Functions;
+import static Functions.Functions.*;
 import java.sql.Statement;
 import java.util.Date;
 
@@ -124,5 +125,49 @@ public class Queries {
     
     public static void deleteWarehouseKeeper(WarehouseKeeper warehouse_keeper) {
         Database.DB.simpleQuery("DELETE FROM warehouse_keeper WHERE personnel_code = " + warehouse_keeper.getPersonnelCode());
+    }
+    
+    public static int insertOrder(Orders order) {
+        int id = 0;
+        
+        try {
+            PreparedStatement ps = Database.conn.prepareStatement("INSERT INTO orders (order_time, customer_ID, personnel_code) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setDate(1, convertFromJAVADateToSQLDate(order.getOrder_Time()));
+            ps.setInt(2, order.getCustomer_ID());
+            ps.setInt(3, order.getPersonnel_code());
+            
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Queries.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id;
+    }
+    
+    public static int insertOrderWare(int order_ID, int ware_ID, int size) {
+        int id = 0;
+        
+        try {
+            PreparedStatement ps = Database.conn.prepareStatement("INSERT INTO wares_in_order (order_ID, ware_ID, num_of_ware) VALUES (?, ?, ?)", Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, order_ID);
+            ps.setInt(2, ware_ID);
+            ps.setInt(3, size);
+            
+            ps.executeUpdate();
+            
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()){
+                id = rs.getInt(1);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Queries.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id;
     }
 }

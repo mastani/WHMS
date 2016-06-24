@@ -140,4 +140,13 @@ public class Ware {
         
         return temp;
     }
+    
+    public static Ware findWareWithName(String findStr) {
+        for (Ware wh : WaresHolder) {
+            if( wh.getWare_Name().equals(findStr) ) {
+                return wh;
+            }
+        }
+        return null;
+    }
 }

@@ -15,7 +15,7 @@ public class HomePageUI extends javax.swing.JFrame {
         btnCustomersList = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         btnFactorsList = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        btnRegisterOrder = new javax.swing.JButton();
         btnWaresManagement = new javax.swing.JButton();
         txtWarehouseList = new javax.swing.JButton();
         btnUserList = new javax.swing.JButton();
@@ -48,8 +48,13 @@ public class HomePageUI extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
-        jButton6.setText("ثبت سفارش");
+        btnRegisterOrder.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        btnRegisterOrder.setText("ثبت سفارش");
+        btnRegisterOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegisterOrderActionPerformed(evt);
+            }
+        });
 
         btnWaresManagement.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnWaresManagement.setText("مدیریت کالاها");
@@ -84,7 +89,7 @@ public class HomePageUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnCustomersList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnWaresManagement, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnRegisterOrder, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(txtWarehouseList, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -111,7 +116,7 @@ public class HomePageUI extends javax.swing.JFrame {
                     .addComponent(btnFactorsList))
                 .addGap(42, 42, 42)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6)
+                    .addComponent(btnRegisterOrder)
                     .addComponent(btnUserList))
                 .addContainerGap(52, Short.MAX_VALUE))
         );
@@ -143,6 +148,11 @@ public class HomePageUI extends javax.swing.JFrame {
         ListOfUsersUI.main(new String[0]);
         setVisible(false);
     }//GEN-LAST:event_btnUserListActionPerformed
+
+    private void btnRegisterOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegisterOrderActionPerformed
+        OrderUI.main(new String[0]);
+        setVisible(false);
+    }//GEN-LAST:event_btnRegisterOrderActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -182,9 +192,9 @@ public class HomePageUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCustomersList;
     private javax.swing.JButton btnFactorsList;
+    private javax.swing.JButton btnRegisterOrder;
     private javax.swing.JButton btnUserList;
     private javax.swing.JButton btnWaresManagement;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton txtWarehouseList;
     // End of variables declaration//GEN-END:variables

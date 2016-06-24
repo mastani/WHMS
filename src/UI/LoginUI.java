@@ -1,5 +1,6 @@
 package UI;
 
+import Classes.Person;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -368,6 +369,7 @@ public class LoginUI extends javax.swing.JFrame {
         } else {
             boolean login = Queries.validateLogin(username, password);
             if(login) {
+                Person.currentPersonnel = Integer.valueOf(username);
                 HomePageUI.main(new String[0]);
                 setVisible(false);
             } else {

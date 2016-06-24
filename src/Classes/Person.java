@@ -5,6 +5,9 @@ import java.util.Date;
 
 
 public class Person {    
+    
+    public static int currentPersonnel = 0;
+    
     //fields:
     
     private int ID;
