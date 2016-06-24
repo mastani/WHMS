@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 24, 2016 at 02:08 PM
+-- Generation Time: Jun 24, 2016 at 10:00 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 7.0.6
 
@@ -30,6 +30,14 @@ CREATE TABLE `customer` (
   `customer_ID` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`customer_ID`) VALUES
+(2),
+(3);
+
 -- --------------------------------------------------------
 
 --
@@ -38,11 +46,17 @@ CREATE TABLE `customer` (
 
 CREATE TABLE `orders` (
   `order_ID` int(10) UNSIGNED NOT NULL,
-  `delivery_time` datetime NOT NULL,
-  `order_time` datetime NOT NULL,
+  `order_time` date NOT NULL,
   `customer_ID` int(10) UNSIGNED NOT NULL,
   `personnel_code` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_ID`, `order_time`, `customer_ID`, `personnel_code`) VALUES
+(1, '2016-06-25', 2, 1);
 
 -- --------------------------------------------------------
 
@@ -59,6 +73,15 @@ CREATE TABLE `person` (
   `address` text COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+--
+-- Dumping data for table `person`
+--
+
+INSERT INTO `person` (`person_ID`, `first_name`, `surname`, `birth_date`, `cell_number`, `address`) VALUES
+(1, 'امین', 'مستانی یزد', '1994-06-10', '09353361569', 'مینودشت'),
+(2, 'محمد', 'حسینی', '1996-06-13', '09350004525', 'گنبد'),
+(3, 'رجب', 'رجبی', '1994-06-20', '09112589874', 'گرگان');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +97,17 @@ CREATE TABLE `ware` (
   `ware_size` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+--
+-- Dumping data for table `ware`
+--
+
+INSERT INTO `ware` (`ware_ID`, `warehouse_ID`, `ware_kind`, `ware_name`, `ware_price`, `ware_size`) VALUES
+(1, 1, 'خوراکی', 'چیپس نمکی', 1500, 100),
+(2, 1, 'خوراکی', 'چیپس سرکه ای', 1500, 200),
+(3, 1, 'خوراکی', 'چیپس تنوری', 1000, 50),
+(4, 1, 'خوراکی', 'پفک نمکی', 1000, 500),
+(5, 1, 'خوراکی', 'لواشک', 200, 500);
+
 -- --------------------------------------------------------
 
 --
@@ -86,6 +120,15 @@ CREATE TABLE `warehouse` (
   `state` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+--
+-- Dumping data for table `warehouse`
+--
+
+INSERT INTO `warehouse` (`warehouse_ID`, `name`, `state`) VALUES
+(1, 'انبار اول', 0),
+(2, 'انبار دوم', 0),
+(3, 'انبار سوم', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +140,13 @@ CREATE TABLE `warehouse_keeper` (
   `password` text COLLATE utf8_persian_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_persian_ci;
 
+--
+-- Dumping data for table `warehouse_keeper`
+--
+
+INSERT INTO `warehouse_keeper` (`personnel_code`, `password`) VALUES
+(1, '202cb962ac59075b964b07152d234b70');
+
 -- --------------------------------------------------------
 
 --
@@ -104,10 +154,20 @@ CREATE TABLE `warehouse_keeper` (
 --
 
 CREATE TABLE `wares_in_order` (
+  `id` int(10) NOT NULL,
   `order_ID` int(10) UNSIGNED NOT NULL,
   `ware_ID` int(10) UNSIGNED NOT NULL,
   `num_of_ware` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `wares_in_order`
+--
+
+INSERT INTO `wares_in_order` (`id`, `order_ID`, `ware_ID`, `num_of_ware`) VALUES
+(1, 1, 1, 5),
+(2, 1, 2, 10),
+(3, 1, 5, 50);
 
 --
 -- Indexes for dumped tables
@@ -157,10 +217,11 @@ ALTER TABLE `warehouse_keeper`
 -- Indexes for table `wares_in_order`
 --
 ALTER TABLE `wares_in_order`
-  ADD PRIMARY KEY (`order_ID`),
+  ADD PRIMARY KEY (`id`),
   ADD KEY `ware_ID` (`ware_ID`),
   ADD KEY `num_of_ware` (`num_of_ware`),
-  ADD KEY `num_of_ware_2` (`num_of_ware`);
+  ADD KEY `num_of_ware_2` (`num_of_ware`),
+  ADD KEY `order_ID` (`order_ID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -175,7 +236,7 @@ ALTER TABLE `customer`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `order_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `person`
 --
@@ -185,17 +246,22 @@ ALTER TABLE `person`
 -- AUTO_INCREMENT for table `ware`
 --
 ALTER TABLE `ware`
-  MODIFY `ware_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ware_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `warehouse`
 --
 ALTER TABLE `warehouse`
-  MODIFY `warehouse_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `warehouse_ID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `warehouse_keeper`
 --
 ALTER TABLE `warehouse_keeper`
-  MODIFY `personnel_code` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `personnel_code` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `wares_in_order`
+--
+ALTER TABLE `wares_in_order`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- Constraints for dumped tables
 --
@@ -229,7 +295,7 @@ ALTER TABLE `warehouse_keeper`
 -- Constraints for table `wares_in_order`
 --
 ALTER TABLE `wares_in_order`
-  ADD CONSTRAINT `fk_order_ID_orders` FOREIGN KEY (`order_ID`) REFERENCES `orders` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_order_id` FOREIGN KEY (`order_ID`) REFERENCES `orders` (`order_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `fk_ware_ID_ware` FOREIGN KEY (`ware_ID`) REFERENCES `ware` (`ware_ID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
