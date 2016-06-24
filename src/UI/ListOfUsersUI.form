@@ -40,6 +40,8 @@
                               <Component id="btnBackUsers" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="btnDeleteUser" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -60,6 +62,7 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="btnBackUsers" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="btnDeleteUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="22" max="32767" attributes="0"/>
           </Group>
@@ -123,7 +126,7 @@
     <Component class="javax.swing.JButton" name="btnBackUsers">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="B Nazanin" size="12" style="1"/>
+          <Font name="B Nazanin" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/undoResized.png"/>
@@ -137,7 +140,7 @@
     <Component class="javax.swing.JButton" name="btnDeleteUser">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="B Nazanin" size="12" style="1"/>
+          <Font name="B Nazanin" size="14" style="1"/>
         </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/close (1).png"/>
@@ -147,6 +150,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDeleteUserActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButton1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="B Nazanin" size="14" style="1"/>
+        </Property>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/printer_new-Resized.png"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#x686;&#x627;&#x67e;"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

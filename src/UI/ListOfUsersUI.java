@@ -23,6 +23,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
         tblUsers = new javax.swing.JTable();
         btnBackUsers = new javax.swing.JButton();
         btnDeleteUser = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -60,7 +61,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
         tblUsers.setName(""); // NOI18N
         jScrollPane1.setViewportView(tblUsers);
 
-        btnBackUsers.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnBackUsers.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnBackUsers.setIcon(new javax.swing.ImageIcon(getClass().getResource("/undoResized.png"))); // NOI18N
         btnBackUsers.setText("بازگشت");
         btnBackUsers.addActionListener(new java.awt.event.ActionListener() {
@@ -69,7 +70,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
             }
         });
 
-        btnDeleteUser.setFont(new java.awt.Font("B Nazanin", 1, 12)); // NOI18N
+        btnDeleteUser.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
         btnDeleteUser.setIcon(new javax.swing.ImageIcon(getClass().getResource("/close (1).png"))); // NOI18N
         btnDeleteUser.setText("حذف کاربر");
         btnDeleteUser.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +78,10 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 btnDeleteUserActionPerformed(evt);
             }
         });
+
+        jButton1.setFont(new java.awt.Font("B Nazanin", 1, 14)); // NOI18N
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/printer_new-Resized.png"))); // NOI18N
+        jButton1.setText("چاپ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,7 +101,9 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                                 .addContainerGap()
                                 .addComponent(btnBackUsers)
                                 .addGap(18, 18, 18)
-                                .addComponent(btnDeleteUser)))
+                                .addComponent(btnDeleteUser)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton1)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -110,7 +117,8 @@ public class ListOfUsersUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBackUsers)
-                    .addComponent(btnDeleteUser))
+                    .addComponent(btnDeleteUser)
+                    .addComponent(jButton1))
                 .addContainerGap(22, Short.MAX_VALUE))
         );
 
@@ -209,6 +217,7 @@ public class ListOfUsersUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackUsers;
     private javax.swing.JButton btnDeleteUser;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable tblUsers;
