@@ -89,6 +89,27 @@ public class Queries {
         Database.DB.simpleQuery("DELETE FROM warehouse WHERE warehouse_ID = " + warehouse.getWarehouse_ID());
     }
     
+    public static boolean checkWarehousIsEmpty(Warehouse warehouse) {
+        boolean success = true;
+        
+        try {
+            PreparedStatement ps = Database.DB.conn.prepareStatement("SELECT COUNT(*) FROM ware WHERE warehouse_ID = ?");
+            ps.setInt(1, warehouse.getWarehouse_ID());
+            ResultSet rs = ps.executeQuery();
+            rs.next();
+            
+            if(rs.getInt(1) > 0)
+                success = false;
+            
+            rs.close();
+            ps.close();          
+        } catch (SQLException ex) {
+            Logger.getLogger(Database.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return success;
+    }
+    
     public static int insertCustomerQuery(Customer customer) {
         int person_id = insertPerson(customer.getName(), customer.getSurName(), customer.getBirthDate(), customer.getCellNumber(), customer.getAddress());
         Database.DB.QueryWithID("INSERT INTO customer (customer_ID) VALUES (" + person_id + ")");

@@ -145,8 +145,9 @@ public class WarehouseListUI extends javax.swing.JFrame {
 
             int reply = JOptionPane.showConfirmDialog(null, "آیا مایلید \"" + rowText + "\" حذف کنید؟", "", JOptionPane.YES_NO_OPTION);
             if (reply == JOptionPane.YES_OPTION) {
-                Warehouse.deleteWarehouse(tableID);
-                JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
+                boolean result = Warehouse.deleteWarehouse(tableID);
+                if(result)
+                    JOptionPane.showMessageDialog(null, "با موفقیت حذف شد!");
                 loadTable();
             }
             

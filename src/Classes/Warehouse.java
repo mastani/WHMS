@@ -8,6 +8,7 @@ import java.sql.SQLException;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class Warehouse {
@@ -103,7 +104,7 @@ public class Warehouse {
         WarehousesHolder.add(warehouse);
     }
     
-    public static void deleteWarehouse(int warehouse_ID) {
+    public static boolean deleteWarehouse(int warehouse_ID) {
         Warehouse warehouse = null;
         
         for (Warehouse wh : WarehousesHolder) {
@@ -113,8 +114,16 @@ public class Warehouse {
             }
         }
         
-        Queries.deleteWarehouseQuery(warehouse);
-        WarehousesHolder.removeElement(warehouse);
+        boolean check = Queries.checkWarehousIsEmpty(warehouse);
+        
+        if(check) {
+            Queries.deleteWarehouseQuery(warehouse);
+            WarehousesHolder.removeElement(warehouse);
+            return true;
+        } else {
+            JOptionPane.showMessageDialog(null, "این انبار دارای کالا است. قبل از حذف انبار کالا های آن را حذف کنید!");
+            return false;
+        }
     }
     
 }
