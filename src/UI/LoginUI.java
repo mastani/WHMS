@@ -497,7 +497,7 @@ public class LoginUI extends javax.swing.JFrame {
         Runnable r = new Runnable() {
             public void run() {
                 try {
-                    URL url = this.getClass().getClassLoader().getResource("Steps_To_Paradise-short.wav");
+                    URL url = this.getClass().getClassLoader().getResource("music.wav");
                     AudioInputStream audioIn = AudioSystem.getAudioInputStream(url);
                     // Get a sound clip resource.
                     Clip clip = AudioSystem.getClip();
